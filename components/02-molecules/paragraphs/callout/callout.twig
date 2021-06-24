@@ -91,11 +91,13 @@
                 {{ callout_body }}
                 {{ link_content }}
             </div>
-            {% if callout_image %}
+            {% if has_callout_image %}
                 <div class="img-right">{{ callout_image }}</div>
             {% endif %}   
         {% elseif callout_img_loc == 'left' %}
-            <div class="img-left">{{ callout_image }}</div>
+            {% if has_callout_image %}
+                <div class="img-left">{{ callout_image }}</div>
+            {% endif %}
             <div {{ bem(callout__base_class ~ '-text', []) }}>
                 {{ callout_body }}
                 {{ link_content }}
