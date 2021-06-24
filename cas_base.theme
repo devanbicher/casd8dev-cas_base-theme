@@ -5,7 +5,7 @@
  * Functions to support theming.
  */
 
-function CAS_base_preprocess_region__header(&$vars) {
+function cas_base_preprocess_region__header(&$vars) {
 
     $site_config = \Drupal::config('system.site');
 
@@ -14,7 +14,7 @@ function CAS_base_preprocess_region__header(&$vars) {
 
 }
 
-function CAS_base_preprocess_block__footeraddress(&$vars) {
+function cas_base_preprocess_block__footeraddress(&$vars) {
 
     $site_config = \Drupal::config('system.site');
 

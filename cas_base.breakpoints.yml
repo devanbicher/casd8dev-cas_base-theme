@@ -1,16 +1,16 @@
 # Breakpoints - change based on site need
-CAS_base.small:
+cas_base.small:
   label: small
   mediaQuery: 'all and (min-width: 25em)'
-CAS_base.small-med:
+cas_base.small-med:
   label: small-med
   mediaQuery: 'all and (min-width: 26em)'
-CAS_base.small-large:
+cas_base.small-large:
   label: small-large
   mediaQuery: 'all and (min-width: 41em)'
-CAS_base.medium:
+cas_base.medium:
   label: medium
   mediaQuery: 'all and (min-width: 48em)'
-CAS_base.large:
+cas_base.large:
   label: large
   mediaQuery: 'all and (min-width: 61.25em)'
