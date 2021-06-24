@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/layout_theme-ds/documentation/master/.gitbook/assets/logo.png" width="400"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/CAS_base-ds/documentation/master/.gitbook/assets/logo.png" width="400"/></p>
 
 Layout Theme is an open-source tool for creating design systems with reusable components and clear guidelines for teams. Layout Theme helps organizations scale their design while reducing cost, streamlining workflows, and improving accessibility.
 
@@ -10,20 +10,20 @@ Layout Theme is an open-source tool for creating design systems with reusable co
 
 ## Documentation
 
-[docs.layout_theme.info](https://docs.layout_theme.info/)
+[docs.CAS_base.info](https://docs.CAS_base.info/)
 
 ### Quick Links
 
-1. [Installation](https://docs.layout_theme.info/installation/design-system)
-2. [Usage](https://docs.layout_theme.info/usage/commands)
+1. [Installation](https://docs.CAS_base.info/installation/design-system)
+2. [Usage](https://docs.CAS_base.info/usage/commands)
 
 ## Demo
 
-1. [Storybook](http://storybook.layout_theme.info/)
+1. [Storybook](http://storybook.CAS_base.info/)
 
 ## Contributing
 
-### [Code of Conduct](https://github.com/layout_theme-ds/layout_theme-drupal/blob/master/CODE_OF_CONDUCT.md)
+### [Code of Conduct](https://github.com/CAS_base-ds/CAS_base-drupal/blob/master/CODE_OF_CONDUCT.md)
 
 The project maintainers have adopted a Code of Conduct that we expect project participants to adhere to. Please read the full text so that you can understand what actions will and will not be tolerated.
 
@@ -31,9 +31,9 @@ The project maintainers have adopted a Code of Conduct that we expect project pa
 
 Please also follow the issue template and pull request templates provided. See below for the correct places to post issues:
 
-1. [Layout Theme Drupal](https://github.com/layout_theme-ds/layout_theme-drupal/issues)
-2. [Layout Theme Twig Extensions](https://github.com/layout_theme-ds/layout_theme-twig-extensions/issues)
-3. [Layout Theme Twig Drupal Module](https://www.drupal.org/project/issues/layout_theme_twig)
+1. [Layout Theme Drupal](https://github.com/CAS_base-ds/CAS_base-drupal/issues)
+2. [Layout Theme Twig Extensions](https://github.com/CAS_base-ds/CAS_base-twig-extensions/issues)
+3. [Layout Theme Twig Drupal Module](https://www.drupal.org/project/issues/CAS_base_twig)
 
 ### Committing Changes
 

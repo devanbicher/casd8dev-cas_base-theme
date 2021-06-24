@@ -20,7 +20,7 @@ describe('link', () => {
 
         <a
           class="link"
-          href="https://github.com/layout_theme-ds/layout_theme-design-system"
+          href="https://github.com/CAS_base-ds/CAS_base-design-system"
           target="_blank"
         >
           

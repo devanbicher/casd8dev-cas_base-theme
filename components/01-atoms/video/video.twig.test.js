@@ -28,7 +28,7 @@ describe('video', () => {
             frameborder="0"
             height="480"
             src="https://www.youtube.com/embed/YRnVnlhjOBs?autoplay=0&start=0"
-            title="Layout Theme Video"
+            title="CAS Base Video"
             width="854"
           />
           
@@ -61,7 +61,7 @@ describe('video', () => {
             frameborder="0"
             height="480"
             src="https://www.youtube.com/embed/YRnVnlhjOBs?autoplay=0&start=0"
-            title="Layout Theme Video"
+            title="CAS Base Video"
             width="854"
           />
           

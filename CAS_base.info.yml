@@ -1,15 +1,15 @@
-name: Travis's Layout Theme
+name: CAS Base Theme
 type: theme
-description: Travis Layout Theme 
+description: Base theme for departments, etc. 
 base theme: stable
 core: 8.x
 core_version_requirement: ^8 || ^9
 
 # Libraries (These are loaded on every page. Use https://www.drupal.org/developing/api/8/assets#twig whenever possible.)
 libraries:
-  - 'layout_theme/global'
-  - 'layout_theme/fonts'
-  # - 'layout_theme/typekit'
+  - 'CAS_base/global'
+  - 'CAS_base/fonts'
+  # - 'CAS_base/typekit'
 
 # Libraries override allows you to remove libraries added by other projects.
 # libraries-override:

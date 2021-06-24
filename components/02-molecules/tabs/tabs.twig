@@ -14,7 +14,7 @@
 
 {# Drupal Specific #}
 {% if primary %}
-{{ attach_library('layout_theme/tabs') }}
+{{ attach_library('CAS_base/tabs') }}
   <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
   <ul class="tabs__nav tabs__nav--local-tasks">{{ primary }}</ul>
 {% endif %}
@@ -25,7 +25,7 @@
 
 {# Component Library Specific (javascript version) #}
 {% if not primary %}
-{{ attach_library('layout_theme/tabs') }}
+{{ attach_library('CAS_base/tabs') }}
   <div id="tabs" class="tabs no-js">
     <ul class="tabs__nav">
       {% for key, tab in tabs %}
