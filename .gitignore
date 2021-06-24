@@ -1,0 +1,31 @@
+# Ignore compiled files.
+dist
+
+# Yarn/NPM
+node_modules/
+yarn.lock
+
+# Storybook
+.out
+
+# System
+.DS_Store
+
+# Git deploy
+.publish
+
+# Composer
+composer.lock
+/vendor/
+
+# Jest
+.coverage
+
+# I dont' think we need this stuff in the storybook folder
+.storybook/
+.storybook
+
+# vscode setup
+.vscode/
+.vscode
+.out
