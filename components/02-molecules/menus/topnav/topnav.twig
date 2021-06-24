@@ -1,0 +1,6 @@
+{% set topnav_base_class = 'topnav' %}
+
+{% include "@molecules/menus/_menu.twig" with {
+  menu_class: 'topnav-menu',
+  items: topnav_menu_items,
+} %}

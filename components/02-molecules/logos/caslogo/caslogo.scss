@@ -1,0 +1,31 @@
+.caslogo {
+    margin-left: 2rem;
+}
+
+.caslogo__h2 {
+    @include underline(lehigh, 2px);
+    @include space-reset();
+
+    border-color: transparent;
+    font-family: $font-sans;
+    color: clr(lehigh);
+    font-size: 1.25rem;
+    line-height: 1.2em;
+    margin-bottom: -2px;
+
+
+    &:hover {
+        border-color: clr(lehigh);
+    }
+}
+
+.caslogo__link {
+    @include no-dec();
+
+    color: clr(lehigh);
+
+    &:visited {
+        color: clr(lehigh);
+    }
+
+}

@@ -1,0 +1,42 @@
+.topnav-menu {
+    @include list-reset;
+    @include overline(background-gg);
+
+    @include large() {
+      display: flex;
+    }
+    
+    border-width: 2px;
+    display: none;
+    justify-content: space-between;
+
+  }
+  
+  .topnav-menu__item {
+    min-width: 12%;
+    height: 2em;
+    display: flex;
+
+    @include large {
+        margin-bottom: 1em;
+    }
+  }
+  
+  .topnav-menu__link {
+    @include link;
+    
+    color: clr(lehigh);
+    font-size: 0.875em;
+    font-weight: 700;
+    letter-spacing: .25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }

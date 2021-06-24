@@ -1,0 +1,17 @@
+@mixin icon {
+    &__icon{
+        position: absolute;
+        top: -$space;
+        left: -$space;
+        z-index: 0;
+        stroke: clr(accent);
+        fill: clr(accent);
+
+        &--double-bottom {
+            bottom: $space;
+            right: -$space;
+            top: revert;
+            left: revert;
+        }
+    }    
+}

@@ -1,0 +1,24 @@
+{% include "@atoms/text/headings/_heading.twig" with {
+    "heading_level": 2,
+    "heading": title,
+    "heading_blockname": "footer",
+    "heading_modifiers": ["address"],
+} %}
+
+{% include "@atoms/fields/location/_location.twig" with {
+    "icon": TRUE,
+    "location": address,
+    "location_modifiers": ['address', modifiers],
+} %}
+
+{% include "@atoms/fields/email/_email.twig" with {
+    "icon": TRUE,
+    "email": email,
+    "email_modifiers": modifiers,
+} %}
+
+{% include "@atoms/fields/phone/_phone.twig" with {
+    "icon": TRUE,
+    "phone": phone,
+    "phone_modifiers": modifiers,
+} %}

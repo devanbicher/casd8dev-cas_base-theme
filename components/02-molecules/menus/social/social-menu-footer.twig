@@ -1,0 +1,18 @@
+  <ul {{ bem('social-icons', [], 'footer') }}>
+  {% for item in items %}
+    <li {{ bem('social-icon-li', [], 'footer') }}>
+        {% embed "@atoms/links/link/link.twig" with
+            {
+                link_url: item.url,
+            }
+        %}
+            {% block link_content %}
+                {% include "@atoms/images/icons/_icon.twig" with {
+                    icon_name: item.title,
+                    icon_modifiers: ["social"],
+                } %}
+            {% endblock %}
+        {% endembed %}
+    </li>
+  {% endfor %}
+  </ul>

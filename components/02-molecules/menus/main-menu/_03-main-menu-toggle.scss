@@ -1,0 +1,71 @@
+/* Toggle */
+.toggle-expand {
+  @include link;
+
+  @include large {
+    display: none;
+  }
+
+  display: flex;
+  justify-content: flex-end;
+  padding: $space-one-half;
+  text-decoration: none;
+  width: 100%;
+  transition: .15s;
+
+  /* See main-menu.js */
+  &--open {
+    background-color: clr(lehigh);
+  }
+}
+
+.toggle-expand__text {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: bold;
+
+  .toggle-expand--open & {
+    color: clr(background);
+  }
+}
+
+/* SVG icon */
+.toggle-expand__icon {
+  height: 3rem;
+  width: 3rem;
+  margin: 0 auto;
+}
+
+.toggle-expand__open {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 3rem;
+  width: 6rem;
+
+  .toggle-expand--open & {
+    display: none;
+  }
+}
+
+.toggle-expand__close {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  height: 3rem;
+  width: 6rem;
+
+
+  &::before {
+    color: clr(background);
+    content: 'X';
+    display: block;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .toggle-expand--open & {
+    display: flex;
+  }
+}

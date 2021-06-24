@@ -1,0 +1,7 @@
+{% set fulllogo__base_class = 'fulllogo' %}
+
+
+<div {{ bem(fulllogo__base_class, fulllogo__modifiers, fulllogo__blockname) }}>
+    {% include "@molecules/logos/lehighlogo/lehighlogo.twig" %}
+    {% include "@molecules/logos/caslogo/caslogo.twig" %}
+</div>

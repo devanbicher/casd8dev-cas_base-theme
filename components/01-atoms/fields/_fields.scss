@@ -1,0 +1,26 @@
+/* General field styles */
+
+@mixin infoField() {
+    display: flex;
+    align-items: baseline;
+    gap: $space-one-half;
+    margin-bottom: $space;
+    line-height: 1.25em;
+
+    & a,
+    & a:visited,
+    & a:active {
+        color: clr(lehigh);
+    }
+
+    & a:hover {
+        color: clr(accent-readable);
+    }
+
+    & .field__icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: clr(accent);
+        transform: translateY(7px);
+    }
+}

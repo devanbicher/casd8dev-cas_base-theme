@@ -1,0 +1,22 @@
+{% set lehighlogo__base_class = 'lehighlogo' %}
+{% set header__logo_src = directory ? '/' ~ directory ~ '/images/official_lehigh_brown.png' : 'official_lehigh_brown.png' %}
+
+<div {{ bem(lehighlogo__base_class) }}>
+    {% embed "@atoms/links/link/link.twig" with
+        {
+            link_url: 'https://lehigh.edu',
+            link_modifiers: '',
+        }
+    %}
+        {% block link_content %}
+            {% include "@atoms/images/image/responsive-image.twig" with
+                {
+                    output_image_tag: true,
+                    image_src: header__logo_src,
+                    image_alt: 'Lehigh Logo',
+                    responsive_image_blockname: 'logo',
+                }
+            %}
+        {% endblock link_content %}
+    {% endembed %}
+</div>

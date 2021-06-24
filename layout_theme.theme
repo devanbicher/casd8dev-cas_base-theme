@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming.
+ */
+
+function layout_theme_preprocess_region__header(&$vars) {
+
+    $site_config = \Drupal::config('system.site');
+
+    $vars['site_name'] = $site_config->get('name');
+    $vars['site_slogan'] = $site_config->get('slogan');
+
+}
+
+function layout_theme_preprocess_block__footeraddress(&$vars) {
+
+    $site_config = \Drupal::config('system.site');
+
+    $vars['site_name'] = $site_config->get('name');
+    $vars['site_slogan'] = $site_config->get('slogan');
+
+}

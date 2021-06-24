@@ -1,0 +1,24 @@
+.footer__h2--social {
+    margin: 0 0 $space 0;
+}
+
+.footer__social-icons {
+    @include list-reset();
+
+    display: flex;
+    justify-content: space-between;
+
+    & a {
+
+        & .icon--social {
+            width: 2.5rem;
+            height: 2.5rem;
+            fill: clr(lehigh);
+            transition: .05s;
+        }
+
+        &:hover .icon--social {
+            fill: clr(accent);
+        }
+    }
+}

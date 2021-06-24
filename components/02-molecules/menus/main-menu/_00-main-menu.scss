@@ -1,0 +1,52 @@
+/* Menu media */
+$main-menu-medium: $medium;
+
+/* Nav */
+.main-nav {
+  @include overline(background-neutral, 10px);
+  @include large {
+    display: block; /* Never shown on large screens */
+    max-width: 300px;
+  }
+
+  display: none;
+  padding-top: 0;
+
+  & > .main-menu {
+    margin-top: -2px;
+  }
+
+  &--open {
+    display: block;
+    position: absolute;
+    background: white;
+    width: 100%;
+    z-index: 3;
+    border: none;
+
+    & > .main-menu {
+      margin-top: 0;
+    }
+  }
+  
+}
+
+/* UL */
+.main-menu {
+  @include list-reset;
+}
+
+#block-main-menu-wrap {
+  position: sticky;
+  top: $space-double;
+
+  & nav {
+    position: relative;
+  }
+
+  &.block-main-menu-wrap--top {
+    position: relative;
+    top: 0;
+    z-index: 2;
+  }
+}

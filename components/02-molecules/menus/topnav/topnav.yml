@@ -1,0 +1,11 @@
+topnav_menu_items:
+  - title: 'About'
+    url: '#'
+  - title: 'Undergraduate'
+    url: '#'
+  - title: 'Graduate'
+    url: '#'
+  - title: 'Research'
+    url: '#'
+  - title: 'Faculty'
+    url: '#'

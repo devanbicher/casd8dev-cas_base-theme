@@ -1,0 +1,49 @@
+.expand-sub{
+    @include outline(accent);
+
+    position: absolute;
+    right: $space-one-half;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: .1s;
+    background-color: white;
+
+    .main-nav--page-top & {
+        width: 36px;
+        height: 36px;
+        right: $space;
+    }
+
+    &:hover,
+    &:focus{
+        background-color: clr(background-neutral);
+        outline: none;
+    }
+
+    &::before,
+    &::after{
+        content:'';
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        background-color: clr(accent);
+    }
+
+    &::before {
+        width: .8px;
+        margin: 3px auto;
+    }
+
+    &::after {
+        margin: auto 3px;
+        height: .8px;
+    }
+}
+
+.expand-sub--close {
+    transform: rotate(45deg);
+}

@@ -1,0 +1,16 @@
+@mixin link {
+  color: clr(accent-readable);
+
+  &:hover {
+    color: clr(accent-high);
+  }
+}
+
+.link {
+  @include link;
+}
+
+.link--no-dec {
+  @include link;
+  @include no-dec();
+}

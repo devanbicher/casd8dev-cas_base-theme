@@ -1,0 +1,21 @@
+{% set header__base_class = 'header' %}
+{# If `directory` is defined, set the path relative for Drupal.
+ # Otherwise, set the path relative to the Component Library. #}
+
+<header {{ bem(header__base_class) }}>
+  <div {{ bem('inner', [], header__base_class) }}>
+    <div {{ bem('primary', [], header__base_class) }}>
+      <div {{ bem('branding', [], header__base_class) }}>
+        {% include "@molecules/logos/fulllogo/fulllogo.twig" %}
+      </div>
+      <div {{ bem('site-name', [], header__base_class) }}>
+        {% include "@molecules/department/department.twig" %}
+      </div>
+    </div>
+    <div {{ bem('menu', [], header__base_class) }}>
+      {% block header__menu %}
+        {% include "@molecules/menus/topnav/topnav.twig" %}
+      {% endblock %}
+    </div>
+  </div>
+</header>

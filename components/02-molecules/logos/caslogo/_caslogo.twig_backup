@@ -1,0 +1,42 @@
+{% set caslogo__base_class = 'caslogo' %}
+{% set header__logo_src = directory ? '/' ~ directory ~ '/images/official_lehigh_brown.png' : 'official_lehigh_brown.png' %}
+
+<div {{ bem(caslogo__base_class, caslogo__modifiers, caslogo__blockname) }}>
+    <div {{ bem('lehigh-u', [], caslogo__base_class) }}>
+        {% embed "@atoms/links/link/link.twig" with
+            {
+                link_url: 'https://lehigh.edu',
+                link_modifiers: '',
+            }
+        %} only
+            {% block link_content %}
+                {% include "@atoms/images/image/responsive-image.twig" with
+                    {
+                        output_image_tag: true,
+                        image_src: header__logo_src,
+                        image_alt: 'Lehigh Logo',
+                        responsive_image_blockname: 'logo',
+                    }
+                %}
+            {% endblock link_content %}
+        {% endembed %}
+    </div>
+    <div {{ bem('cas', [], caslogo__base_class) }}>
+        {% embed "@atoms/links/link/link.twig" with
+            {
+                link_url: "/",
+                link_modifiers: ['no-dec'],
+            }
+        %} only
+            {% block link_content %}
+                {% include "@atoms/text/headings/_heading.twig" with
+                    {
+                        heading_level: '2',
+                        heading: 'College of Arts</br>and Sciences',
+                        heading_blockname: caslogo__base_class,
+                    }
+                %}
+            {% endblock link_content %}
+        {% endembed %}
+    </div>
+</div>

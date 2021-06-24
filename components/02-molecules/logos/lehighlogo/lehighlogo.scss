@@ -1,0 +1,34 @@
+.logo__image {
+    height: 100%;
+    display: block;
+}
+
+.lehighlogo {
+    height: 3rem;
+    position: relative;
+    margin-bottom: -2px;
+
+    & a img {
+        @include underline(lehigh, 2px);
+        @include space-reset();
+
+        border-color: transparent;
+        padding: .35rem 0;
+
+        &:hover {
+            border-color: clr(lehigh);
+        }
+    }
+
+    &::after {
+        @include abs-center-y();
+        
+        right: -1em;
+        content: '';
+        display: block;
+        height: 90%;
+        width: 1px;
+        background-color: clr(lehigh);
+    }
+
+}

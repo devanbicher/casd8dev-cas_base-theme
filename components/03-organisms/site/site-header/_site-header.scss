@@ -1,0 +1,35 @@
+.header {
+  padding-top: $space;
+  background-color: clr(highlight-high);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .16);
+  position: relative;
+  z-index: 1;
+
+  &__inner {
+    @include wrapper;
+
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &__primary {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    gap: $space;
+    justify-content: space-between;
+    padding: $space 0;
+
+    @media (max-width: 919px) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+  }
+
+  &__branding {
+    margin-right: $space;
+  }
+
+
+}

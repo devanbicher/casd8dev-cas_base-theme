@@ -1,0 +1,111 @@
+{#
+ #   Available Variables:
+ #       callout_accent: Use accent color - boolean
+ #       callout_dark: Use dark colors - Boolean
+ #       callout_decor: Name of outside svg decoration
+ #       callout_img_loc: Image field alignment
+ #       callout_title: Title field
+ #       callout_body: Body field
+ #       callout_image: image src
+ #       callout_link: Link field
+ #       callout_link_decor: Link outline - Boolean,
+#}
+{% set callout__base_class = 'callout' %}
+
+{% set callout__modifiers = [] %}
+
+{% if callout_link %}
+    {% set link_content %}
+        {% if callout_link_decor %}
+            {% include '@atoms/buttons/simple-link.twig' with {
+                link_content: callout_link,
+            } %}
+        {% else %}
+            <div class="simple-link">{{ callout_link }}</div>
+        {% endif %}
+    {% endset %}
+{% endif %}
+
+{% if callout_dark %}
+    {% set callout__modifiers = callout__modifiers|merge(['dark']) %}
+{% endif %}
+
+{% if callout_accent %}
+    {% set callout__modifiers = callout__modifiers|merge(['accent']) %}
+{% endif %}
+
+{# SVG decoration logic #}
+{% set svg = "location" %}
+{% set double_dec = false %}
+
+{% if callout_decor %}
+    {% if callout_decor == "corner_lines" %}
+        {% set svg, double_dec = "cornerlines", true %}
+    {% elseif callout_decor == 'corner_dots' %}
+        {% set svg, double_dec = "cornerdots", true %}
+    {% elseif callout_decor == 'square_dots' %}
+        {% set svg = "squaredots" %}
+        {% set callout__modifiers = callout__modifiers|merge(['overline']) %}
+    {% elseif callout_decor == 'circle_dots' %}
+        {% set svg = "circledots" %}
+    {% endif %}
+{% endif %}
+
+{# END variable settings#}
+
+{% if double_dec %}
+    {% include '@atoms/images/icons/_icon.twig' with {
+      icon_name: svg,
+      aria_hidden: "true",
+      icon_blockname: callout__base_class,
+      icon_modifiers: ['double-top'],
+    } %}
+    {% include '@atoms/images/icons/_icon.twig' with {
+      icon_name: svg,
+      aria_hidden: "true",
+      icon_blockname: callout__base_class,
+      icon_modifiers: ['double-bottom'],
+    } %}
+{% else %}
+    {% include '@atoms/images/icons/_' ~ svg ~ '.twig' with {
+      svg_base_class: 'icon',
+      aria_hidden: "true",
+      svg_blockname: callout__base_class,
+      svg_modifiers: ['single'],
+    } %}
+
+{% endif %}
+
+<div {{ bem(callout__base_class, callout__modifiers, callout__blockname, callout__extra_classes) }}>
+    {% if callout_title %}
+        {% include '@atoms/text/headings/_heading.twig' with {
+            heading: callout_title,
+            heading_level: 3,
+            heading_blockname: 'callout',
+        } %}
+    {% endif %}
+
+    <div {{ bem(callout__base_class ~ '-flex-wrapper', []) }}>
+        {% if callout_img_loc == 'right' %}
+            <div {{ bem(callout__base_class ~ '-text', []) }}>
+                {{ callout_body }}
+                {{ link_content }}
+            </div>
+            {% if callout_image %}
+                <div class="img-right">{{ callout_image }}</div>
+            {% endif %}   
+        {% elseif callout_img_loc == 'left' %}
+            <div class="img-left">{{ callout_image }}</div>
+            <div {{ bem(callout__base_class ~ '-text', []) }}>
+                {{ callout_body }}
+                {{ link_content }}
+            </div>
+        {% else %}
+            <div {{ bem(callout__base_class ~ '-text', []) }}>
+                {{ callout_body }}
+                {{ link_content }}
+            </div>
+        {% endif %}
+    </div>
+
+</div>

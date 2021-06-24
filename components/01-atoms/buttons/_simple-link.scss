@@ -1,0 +1,41 @@
+@mixin link-style() {
+    @include no-dec();
+    @include allcaps();
+
+    padding: $space-one-half $space-one-half $space-one-half $space;
+    font-size: .625rem;
+    color: clr(text);
+    font-weight: bold;
+
+    &:hover {
+        color: clr(accent);
+    
+        &:after {
+            transform: translateX($space-one-third);
+        }
+    }
+
+    &:after {
+        @include transition();
+
+        content: "→";
+        position: relative;
+        display: inline-block;
+        color: clr(accent);
+        font-size: 1.5em;
+        margin: 0 0.5rem;
+    }
+}
+
+@mixin button-style() {
+    @include link-style();
+    @include outline(accent, 1px); 
+}
+
+.simple-link a {
+    @include link-style();
+}
+
+.simple-button a {
+    @include button-style();
+}

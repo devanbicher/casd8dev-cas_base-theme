@@ -1,0 +1,4 @@
+link_url: 'https://github.com/layout_theme-ds/layout_theme-design-system'
+link_content: 'This is my link text'
+link_attributes:
+  'target': '_blank'

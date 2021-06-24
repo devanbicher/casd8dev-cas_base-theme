@@ -1,0 +1,19 @@
+.department__slogan {
+    @include space-reset;
+    @include allcaps;
+
+    font-size: .75em;
+
+}
+.department__name {
+    @include space-reset;
+    @include serif;
+
+    font-size: 2em;
+    max-width: 300px;
+
+    .department:hover & {
+        text-decoration: underline 2px;
+        color: clr(lehigh);
+    }
+}
