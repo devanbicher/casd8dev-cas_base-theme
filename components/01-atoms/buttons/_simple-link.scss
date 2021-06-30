@@ -2,7 +2,6 @@
     @include no-dec();
     @include allcaps();
 
-    padding: $space-one-half $space-one-half $space-one-half $space;
     font-size: .625rem;
     color: clr(text);
     font-weight: bold;
@@ -29,7 +28,9 @@
 
 @mixin button-style() {
     @include link-style();
-    @include outline(accent, 1px); 
+    @include outline(accent, 1px);
+
+    padding: $space-one-half $space-one-half $space-one-half $space;
 }
 
 .simple-link a {

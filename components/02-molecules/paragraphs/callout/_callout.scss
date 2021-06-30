@@ -35,8 +35,21 @@
         }
     }
 
+    & .img-left, & .img-right {
+        flex: 1 0 200px;
+        max-width: 300px;
+    }
+
     &--dark {
         background-color: clr(background-dark);
+
+        & .simple-button a, & .simple-link a {
+            color: clr(text-inverse);
+
+            &:hover {
+                color: clr(accent-dark-bg);
+            }
+        }
     }
 
     &--overline {
@@ -46,7 +59,9 @@
 
     &-flex-wrapper {
         display: flex;
-        gap: $space;
+        flex-wrap: wrap;
+        gap: $space-double;
+        padding-bottom: $space-double;
 
         & img {
             max-height: 240px;
@@ -66,12 +81,19 @@
         @include heading-large;
         @include sans;
 
-        margin: 1rem 0;
+        margin: 1.5rem 0;
     
         .callout--dark & {
             color: clr(text-inverse);
         }
-    
+
+        .callout--accent & {
+            color: clr(accent-readable);
+
+            &.callout-dark {
+                color: clr(accent-dark-bg);
+            }
+        }
     }
 
     &-text {
@@ -79,6 +101,7 @@
         flex-direction: column;
         justify-content: space-around;
         gap: $space;
+        flex: 1 0 240px;
 
         .callout--dark & {
             color: clr(text-inverse);

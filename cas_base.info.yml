@@ -1,6 +1,6 @@
-name: CAS Base Theme
+name: LOCAL CAS Base Theme
 type: theme
-description: Base theme for departments, etc. 
+description: cleanparagraphs Base theme for departments, etc. 
 base theme: stable
 core: 8.x
 core_version_requirement: ^8 || ^9
