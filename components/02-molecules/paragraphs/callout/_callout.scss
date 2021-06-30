@@ -35,6 +35,10 @@
         }
     }
 
+    &--dark {
+        background-color: clr(background-dark);
+    }
+
     &--overline {
         border-top: $space-one-half solid clr(accent);
     }
@@ -63,6 +67,11 @@
         @include sans;
 
         margin: 1rem 0;
+    
+        .callout--dark & {
+            color: clr(text-inverse);
+        }
+    
     }
 
     &-text {
@@ -70,6 +79,10 @@
         flex-direction: column;
         justify-content: space-around;
         gap: $space;
+
+        .callout--dark & {
+            color: clr(text-inverse);
+        }
     }
 
 }
