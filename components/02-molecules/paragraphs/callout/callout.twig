@@ -13,6 +13,7 @@
 {% set callout__base_class = 'callout' %}
 
 {% set callout__modifiers = [] %}
+{% set icon__mods = [] %}
 
 {% if callout_link %}
     {% set link_content %}
@@ -41,13 +42,12 @@
 {% if callout_decor %}
     {% if callout_decor == "corner_lines" %}
         {% set svg, double_dec = "cornerlines", true %}
-    {% elseif callout_decor == 'corner_dots' %}
-        {% set svg, double_dec = "cornerdots", true %}
+    {% elseif callout_decor == 'corner_lines_accent' %}
+        {% set svg, double_dec = "cornerlines", true %}
+        {% set icon__mods = icon__mods|merge(['accent']) %}
     {% elseif callout_decor == 'square_dots' %}
         {% set svg = "squaredots" %}
         {% set callout__modifiers = callout__modifiers|merge(['overline']) %}
-    {% elseif callout_decor == 'circle_dots' %}
-        {% set svg = "circledots" %}
     {% endif %}
 {% endif %}
 
@@ -58,20 +58,20 @@
       icon_name: svg,
       aria_hidden: "true",
       icon_blockname: callout__base_class,
-      icon_modifiers: ['double-top'],
+      icon_modifiers: icon__mods|merge(['double-top']),
     } %}
     {% include '@atoms/images/icons/_icon.twig' with {
       icon_name: svg,
       aria_hidden: "true",
       icon_blockname: callout__base_class,
-      icon_modifiers: ['double-bottom'],
+      icon_modifiers: icon__mods|merge(['double-bottom']),
     } %}
 {% else %}
     {% include '@atoms/images/icons/_' ~ svg ~ '.twig' with {
       svg_base_class: 'icon',
       aria_hidden: "true",
       svg_blockname: callout__base_class,
-      svg_modifiers: ['single'],
+      svg_modifiers: icon__mods|merge(['single']),
     } %}
 
 {% endif %}

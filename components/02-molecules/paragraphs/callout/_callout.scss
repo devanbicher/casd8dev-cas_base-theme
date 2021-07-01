@@ -16,8 +16,8 @@
         top: -$space-double;
         left: -$space-double;
         z-index: 0;
-        stroke: clr(accent);
-        fill: clr(accent);
+        fill: clr(lehigh);
+        stroke: clr(lehigh);
 
         &--single {
             width: calc(100% + #{$space-quadruple});
@@ -25,6 +25,7 @@
             max-width: none;
             stroke: none;
             fill: clr(background-gg);
+            stroke: clr(background-gg);
         }
 
         &--double-bottom {
@@ -32,6 +33,11 @@
             right: -$space-double;
             top: revert;
             left: revert;
+        }
+
+        &--accent {
+            stroke: clr(accent);
+            fill: clr(accent);
         }
     }
 
