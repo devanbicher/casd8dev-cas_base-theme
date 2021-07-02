@@ -29,7 +29,7 @@
         }
 
         &--double-bottom {
-            bottom: 0;
+            bottom: -$space-double;
             right: -$space-double;
             top: revert;
             left: revert;
