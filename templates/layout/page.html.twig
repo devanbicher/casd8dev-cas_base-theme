@@ -80,6 +80,13 @@
     {{ page.content }}
   {% endblock %}
 
+
+  {% block page_bulletin %}
+    {% if page.bulletin %}
+      {{ page.bulletin }}
+    {% endif %}
+  {% endblock %}
+
   {% block page_footer %}
     {% if page.footer %}
       {{ page.footer }}

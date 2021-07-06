@@ -30,6 +30,7 @@ regions:
   messages: Messages
   content: Content # the content region is required
   sidebar: 'Sidebar'
+  bulletin: Bulletin
   footer: Footer
 
 logo: images/logo.png
