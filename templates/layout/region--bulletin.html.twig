@@ -12,6 +12,8 @@
  * @see template_preprocess_region()
  */
 #}
-{% block bulletin_content %}
-  {{ content }}
-{% endblock %}
+{% if content %}
+  <div{{ attributes }} id="bulletin">
+    {{ content }}
+  </div>
+{% endif %}
