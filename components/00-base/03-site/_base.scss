@@ -24,6 +24,7 @@ body {
 .main {
   @include wrapper;
 
+  overflow-x: clip;
   display: block; /* Fix for IE weirdness */
   flex: 1 0 0; /* Grow to force footer to bottom of screen */
 }

@@ -13,7 +13,7 @@ $sidebar-width: 33%;
         display: grid;
         grid-template-columns: calc(33% - 2rem) 2rem calc(100% - #{$sidebar-width});;
     }
-    
+
     align-items: center;
 
     & .bulletin__icon--single {
@@ -23,7 +23,7 @@ $sidebar-width: 33%;
         z-index: -1;
         width: calc(100% + 2rem);
         height: calc(100% + 2rem);
-        fill: red;
+        fill: clr(accent);
     }
 
     & .text-group-wrapper {
@@ -44,11 +44,25 @@ $sidebar-width: 33%;
         max-width: calc(800px + 3rem);
         grid-area: 1 / 2 / 1 / 4;
     }
+
+    & .text-long {
+        @include underline(goblet-gray);
+
+        margin-bottom: $space;
+    }
+
+    & .simple-link a {
+        text-transform: unset;
+        font-size: 1rem;
+        color: clr(accent-readable);
+        letter-spacing: unset;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+
+        &:hover {
+            color: clr(lehigh);
+
+        }
+    }
 }
-
-
-
-
-
-
-
