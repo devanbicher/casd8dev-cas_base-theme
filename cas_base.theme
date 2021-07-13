@@ -5,6 +5,14 @@
  * Functions to support theming.
  */
 
+
+function cas_base_theme_suggestions_block_alter(&$suggestions, $variables) {
+    $content = $variables['elements']['content'];
+    if (isset($content['#block_content']) && $content['#block_content'] instanceof \Drupal\block_content\BlockContentInterface) {
+        $suggestions[] = 'block__' . $content['#block_content']->bundle();
+    }
+}
+
 function cas_base_preprocess_region__header(&$vars) {
 
     $site_config = \Drupal::config('system.site');
