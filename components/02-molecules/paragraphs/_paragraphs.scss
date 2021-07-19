@@ -10,8 +10,8 @@
         &--double-bottom {
             bottom: $space;
             right: -$space;
-            top: revert;
-            left: revert;
+            top: unset;
+            left: unset;
         }
     }    
 }

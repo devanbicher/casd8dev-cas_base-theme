@@ -1,3 +1,5 @@
+/*Style with smaller image on right*/
+
 $sidebar-width: 33%;
 
 .bulletin__callout-wrapper {
@@ -66,5 +68,46 @@ $sidebar-width: 33%;
             border-color: clr(accent);
 
         }
+    }
+}
+
+/*Full width image block*/
+
+.bulletin__callout-large {
+    position: relative;
+
+    & .image-wrapper img {
+        object-fit: cover;
+        height: 75vh;
+        max-height: 600px;
+        width: 100%;
+    }
+    
+    & .text-group {
+        position: absolute;
+        top: 50%;
+        right: calc(50% + 50px - calc(20vw));
+        transform: translate(50%, -50%);
+        background: rgba(255, 255, 255, .40);
+        padding: 15px;
+        max-width: 30vw;
+        min-width: 300px;
+        border-radius: 5px;
+    }
+        @supports (backdrop-filter: none) {
+            & .text-group {
+                backdrop-filter: blur(25px) brightness(3);
+            }
+        }
+        
+        @supports not (backdrop-filter: none) {
+            & .text-group {
+                background: rgba(255, 255, 255, .95);
+          }
+        }
+    
+
+    & .simple-link a {
+        font-size: .8rem;
     }
 }

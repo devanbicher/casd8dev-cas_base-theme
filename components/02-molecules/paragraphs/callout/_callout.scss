@@ -29,10 +29,15 @@
         }
 
         &--double-bottom {
+            @include small() {
+                display: block;
+            }
+
+            display: none;
             bottom: -$space-double;
             right: -$space-double;
-            top: revert;
-            left: revert;
+            top: unset;
+            left: unset;
         }
 
         &--accent {
