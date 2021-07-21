@@ -26,13 +26,16 @@
  */
 #}
 <div {{ bem('apply-now',[],'sidebar') }}>
-<h2> Devan making sure this works.</h2>
-  {{ title_prefix }}
-  {% if label %}
-    <h2{{ title_attributes.addClass('h2') }}>{{ label }}</h2>
-  {% endif %}
-  {{ title_suffix }}
-  {% block content %}
-    {{ content }}
-  {% endblock %}
+  <div {{ bem('apply-now-wrapper',[],'sidebar') }}>
+    
+      {{ title_prefix }}
+      {% if label %}
+        <h2{{ title_attributes.addClass('h2') }}>{{ label }}</h2>
+      {% endif %}
+      {{ title_suffix }}
+      {% block content %}
+        {{ content }}
+      {% endblock %}
+
+  </div>
 </div>

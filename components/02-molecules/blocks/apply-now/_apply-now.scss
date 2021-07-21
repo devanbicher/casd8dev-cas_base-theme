@@ -1,5 +1,38 @@
 
 
+
+/* I think I just need to use a media query here, a nearly full width block looks greate on smaller sizes, and this reduced size, even with a percent doesn't look right. */
+.sidebar__apply-now-wrapper{
+    border: 1px solid var(--c-background-gg);
+    /* need a media query probably to make this look good on mobile.*/
+    padding: 2rem;
+    margin-bottom: 48px;
+
+    @include large { 
+        max-width: 300px;
+    }
+}
+
+
 .sidebar__apply-now{
-    border: 1px solid red;
+
+    img {
+        padding-bottom: 2rem;
+    }
+    p {
+        font-size: .75rem;
+    }
+
+    .h4--apply-now-title{
+        color:var(--c-text-lighter);
+        font-size:1.1rem;
+    }
+    /* for image: 
+    object fit cover
+    max height
+
+
+    /*some stuff goes here.*/
+
+
 }
