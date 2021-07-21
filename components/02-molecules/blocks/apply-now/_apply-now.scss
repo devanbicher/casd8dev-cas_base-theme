@@ -1,12 +1,9 @@
 
-
-
-/* I think I just need to use a media query here, a nearly full width block looks greate on smaller sizes, and this reduced size, even with a percent doesn't look right. */
 .sidebar__apply-now-wrapper{
-    border: 1px solid var(--c-background-gg);
-    /* need a media query probably to make this look good on mobile.*/
+    @include outline($text-inverse);
+
     padding: 2rem;
-    margin-bottom: 48px;
+    margin-bottom: 3rem;
 
     @include large { 
         max-width: 300px;
@@ -18,21 +15,22 @@
 
     img {
         padding-bottom: 2rem;
+        margin:auto;
+        object-fit: cover;
+        max-height: 300px;
+
+        @include large { 
+            max-height: 200px;
+        }
     }
+
     p {
         font-size: .75rem;
     }
 
     .h4--apply-now-title{
-        color:var(--c-text-lighter);
+        color: clr(text-lighter);
         font-size:1.1rem;
     }
-    /* for image: 
-    object fit cover
-    max height
-
-
-    /*some stuff goes here.*/
-
 
 }

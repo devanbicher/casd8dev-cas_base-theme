@@ -39,17 +39,20 @@ Drupal.behaviors.mainMenu = {
       const menu = $('#main-nav', context);
       const minWidth = window.matchMedia("(min-width: 920px)");
       const menuWrap = $('#block-main-menu-wrap', context);
+      const sidebar = $('.main-sidebar', context);
       if (minWidth.matches) {
         if (menu.hasClass("main-nav--page-top")) {
           menuWrap.removeClass("block-main-menu-wrap--top")
           menu.removeClass("main-nav--page-top");
           menuWrap.appendTo($('#sidebar'));
+          sidebar.prependTo($('.main--with-sidebar')[0]);
         }
       }
         else if (!menu.hasClass("main-nav--page-top")) {
           menuWrap.addClass("block-main-menu-wrap--top")
           menu.addClass("main-nav--page-top");
           menuWrap.prependTo($('.layout-container')[0]);
+          sidebar.appendTo($('.main--with-sidebar')[0]);
         }
       
       $(window).resize(function() {
@@ -58,12 +61,14 @@ Drupal.behaviors.mainMenu = {
             menuWrap.removeClass("block-main-menu-wrap--top")
             menu.removeClass("main-nav--page-top");
             menuWrap.appendTo($('#sidebar'));
+            sidebar.prependTo($('.main--with-sidebar')[0]);
           }
         }
         else if (!menu.hasClass("main-nav--page-top")) {
           menuWrap.addClass("block-main-menu-wrap--top")
           menu.addClass("main-nav--page-top");
           menuWrap.prependTo($('.layout-container')[0]);
+          sidebar.appendTo($('.main--with-sidebar')[0]);
         }       
 
       });
