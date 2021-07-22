@@ -1,6 +1,6 @@
 
 .sidebar__apply-now-wrapper{
-    @include outline($text-inverse);
+    @include outline(background-gg);
 
     padding: 2rem;
     margin-bottom: 3rem;
