@@ -44,15 +44,15 @@
 %}
 <div{{ attributes.addClass(classes) }}>
   {% include "@molecules/paragraphs/callout/callout.twig" with {
-    callout_accent: content.field_callout_accent_color['#items'].value,
+    callout_accent: content.field_accent['#items'].value,
     callout_decor: content.field_callout_block_deco['#items'].value,
-    callout_dark: content.field_callout_color_scheme['#items'].value,
-    callout_body: content.field_callout_body,
-    callout_image: content.field_callout_image,
-    has_callout_image: content.field_callout_image|render,
-    callout_img_loc: content.field_callout_image_location['#items'].value,
-    callout_link: content.field_callout_link,
-    callout_link_decor: content.field_callout_link_decoration['#items'].value,
-    callout_title: content.field_callout_title,
+    callout_dark: content.field_dark['#items'].value,
+    callout_body: content.field_body_plain,
+    callout_image: content.field_image,
+    has_callout_image: content.field_image|render,
+    callout_img_loc: content.field_image_location['#items'].value,
+    callout_link: content.field_link,
+    callout_link_decor: content.field_link_decoration['#items'].value,
+    callout_title: content.field_title,
   } %}
 </div>
