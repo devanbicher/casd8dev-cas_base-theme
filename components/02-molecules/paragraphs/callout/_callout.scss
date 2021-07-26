@@ -9,7 +9,7 @@
     padding: $space $space-triple;
     position: relative;
     z-index: 1;
-    margin: $space-triple 0;
+    margin: $space-quadruple 0;
 
     &__icon{
         position: absolute;
@@ -40,7 +40,7 @@
             left: unset;
         }
 
-        &--accent {
+        & .icon--accent {
             stroke: clr(accent);
             fill: clr(accent);
         }

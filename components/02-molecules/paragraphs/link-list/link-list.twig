@@ -1,0 +1,43 @@
+{% set list__base_class = 'link-list-content' %}
+
+{% set list__modifiers = [] %}
+{% set icon__mods = [] %}
+
+{% if dark %}
+    {% set list__modifiers = list__modifiers|merge(['dark']) %}
+{% endif %}
+
+{% if accent %}
+    {% set icon__mods = icon__mods|merge(['accent']) %}
+{% endif %}
+
+{# END variable settings#}
+
+{% include '@atoms/images/icons/_squaredots.twig' with {
+    svg_base_class: 'icon',
+    aria_hidden: "true",
+    svg_blockname: list__base_class,
+    svg_modifiers: icon__mods|merge(['single']),
+} %}
+
+<div {{ bem(list__base_class, list__modifiers, list__blockname, list__extra_classes) }}>
+    {% if title %}
+        {% include '@atoms/text/headings/_heading.twig' with {
+            heading: title,
+            heading_level: 2,
+        } %}
+    {% endif %}
+
+    <div {{ bem(list__base_class ~ '-list') }}>
+        {% for item in links %}
+            <a href="{{item.url}}">
+            <div {{ bem('link') }} >{{item.title}}</div>
+            {% if item.url.external %}
+                {% set url_text = item.url|render|striptags|replace({'https://': '', "http://":'', 'www.':''}) %}
+                <div {{bem('external', [], 'link-list') }}>{{ url_text|truncate(35, true, '...') }}</div>
+            {% endif %}
+            </a>
+        {% endfor %}
+    </div>
+
+</div>
