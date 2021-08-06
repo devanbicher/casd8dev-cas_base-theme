@@ -18,15 +18,14 @@
 
 <div class='text-group-wrapper'>
 
-    {% include '@atoms/images/icons/_squaredots.twig' with {
-        svg_base_class: 'icon',
-        aria_hidden: 'true',
-        svg_blockname: 'bulletin',
-        svg_modifiers: ['single'],
-        attributes: "",
-    } %}
+{% include '@atoms/images/icons/decor/_decor.twig' with {
+        pattern: 'dots',
+        decor_modifiers: ['accent'],
+        attributes: '',
+} %}
 
-    <{{ wrapper_element }} {{ attributes }} class="hello">
+
+    <{{ wrapper_element }} {{ attributes }} >
         {% if title %}
             <{{ title_element }}{{ title_attributes }}>{{ title }}</{{ title_element }}>
         {% endif %}

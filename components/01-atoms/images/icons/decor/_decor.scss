@@ -1,0 +1,65 @@
+.decor {
+    position: absolute;
+    top: -$space-double;
+    left: -$space-double;
+    z-index: 0;
+    width: calc(100% + #{$space-quadruple});
+    height: calc(100% + #{$space-quadruple});
+    max-width: none;
+    fill: clr(background-gg);
+    stroke: clr(background-gg);
+    
+    &--accent {
+        stroke: clr(accent);
+        fill: clr(accent);
+
+        & line {
+            stroke: clr(accent);
+            fill: none;
+        }
+        & circle {
+            stroke: none;
+        }
+    }
+    &--slash {
+        stroke: none;
+
+        & line {
+            stroke: clr(background-gg);
+        }
+        &.decor--accent line {
+            stroke: clr(accent);
+        }
+    }
+    &--top {
+        @include small() {
+            display: block;
+        }
+
+        width: calc(20% + #{$space-double});
+        height: calc(30% + #{$space-double});
+    }
+
+    &--bottom {
+        @include small() {
+            display: block;
+        }
+
+        bottom: -$space-double;
+        right: -$space-double;
+        top: unset;
+        left: unset;
+        width: calc(20% + #{$space-double});
+        height: calc(30% + #{$space-double});
+    }
+
+    &--dots {
+        stroke: none;
+        fill: clr(background-gg);
+
+        &.decor--accent {
+            fill: clr(accent);
+        }
+    }
+
+}

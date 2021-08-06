@@ -13,11 +13,9 @@
 
 {# END variable settings#}
 
-{% include '@atoms/images/icons/_squaredots.twig' with {
-    svg_base_class: 'icon',
-    aria_hidden: "true",
-    svg_blockname: list__base_class,
-    svg_modifiers: icon__mods|merge(['single']),
+{% include '@atoms/images/icons/decor/_decor.twig' with {
+        pattern: 'dots',
+        decor_modifiers: ['accent'],
 } %}
 
 <div {{ bem(list__base_class, list__modifiers, list__blockname, list__extra_classes) }}>

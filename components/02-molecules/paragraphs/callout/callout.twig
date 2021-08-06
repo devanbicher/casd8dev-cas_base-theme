@@ -13,7 +13,7 @@
 {% set callout__base_class = 'callout' %}
 
 {% set callout__modifiers = [] %}
-{% set icon__mods = [] %}
+{% set decor__mods = [] %}
 
 {% if callout_link %}
     {% set link_content %}
@@ -36,48 +36,47 @@
 {% endif %}
 
 {# SVG decoration logic #}
-{% set svg = "square_dots" %}
+{% set svg = "slash" %}
 {% set double_dec = false %}
 
 {% if callout_decor %}
     {% if callout_decor == "corner_lines" %}
-        {% set svg, double_dec = "cornerlines", true %}
+        {% set svg, double_dec = "slash", true %}
     {% elseif callout_decor == 'corner_lines_accent' %}
-        {% set svg, double_dec = "cornerlines", true %}
-        {% set icon__mods = icon__mods|merge(['accent']) %}
-    {% elseif callout_decor == 'square_dots' %}
-        {% set svg = "squaredots" %}
+        {% set svg, double_dec = "slash", true %}
+        {% set decor__mods = decor__mods|merge(['accent']) %}
+
+    {% elseif callout_decor == "corner_dots" %}
+        {% set svg, double_dec = "dots", true %}
+    {% elseif callout_decor == 'corner_dots_accent' %}
+        {% set svg, double_dec = "dots", true %}
+        {% set decor__mods = decor__mods|merge(['accent']) %}
         {% set callout__modifiers = callout__modifiers|merge(['overline']) %}
+
+    {% elseif callout_decor == 'dots_outline' %}
+        {% set svg = "dots" %}
+        {% set decor__mods = decor__mods|merge(['overline']) %}
+    {% elseif callout_decor == 'dots_outline_accent' %}
+        {% set svg = "dots" %}
+        {% set decor__mods = decor__mods|merge(['overline', 'accent']) %}
+        {% set callout__modifiers = callout__modifiers|merge(['overline']) %}
+
     {% endif %}
 {% endif %}
 
 {# END variable settings#}
 
 {% if double_dec %}
-    <div {{ bem("icon", [], callout__base_class) }}>
-        {% include '@atoms/images/icons/_icon.twig' with {
-        icon_name: svg,
-        aria_hidden: "true",
-        
-        icon_modifiers: icon__mods,
-        } %}
-    </div>
-    <div {{ bem("icon", ["double-bottom"], callout__base_class) }}>
-        {% include '@atoms/images/icons/_icon.twig' with {
-        icon_name: svg,
-        aria_hidden: "true",
-        
-        icon_modifiers: icon__mods,
-        } %}
-    </div>
-{% else %}
-    {% include '@atoms/images/icons/_' ~ svg ~ '.twig' with {
-      svg_base_class: 'icon',
-      aria_hidden: "true",
-      svg_blockname: callout__base_class,
-      svg_modifiers: icon__mods|merge(['single']),
+    {% include '@atoms/images/icons/decor/_decor.twig' with {
+        pattern: svg,
+        pattern2: svg,
+        decor_modifiers: decor__mods,
     } %}
-
+{% else %}
+    {% include '@atoms/images/icons/decor/_decor.twig' with {
+        pattern: svg,
+        decor_modifiers: decor__mods,
+    } %}
 {% endif %}
 
 <div {{ bem(callout__base_class, callout__modifiers, callout__blockname, callout__extra_classes) }}>

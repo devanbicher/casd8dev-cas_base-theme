@@ -11,41 +11,6 @@
     z-index: 1;
     margin: $space-quadruple 0;
 
-    &__icon{
-        position: absolute;
-        top: -$space-double;
-        left: -$space-double;
-        z-index: 0;
-        fill: clr(lehigh);
-        stroke: clr(lehigh);
-
-        &--single {
-            width: calc(100% + #{$space-quadruple});
-            height: calc(100% + #{$space-quadruple});
-            max-width: none;
-            stroke: none;
-            fill: clr(background-gg);
-            stroke: clr(background-gg);
-        }
-
-        &--double-bottom {
-            @include small() {
-                display: block;
-            }
-
-            display: none;
-            bottom: -$space-double;
-            right: -$space-double;
-            top: unset;
-            left: unset;
-        }
-
-        & .icon--accent {
-            stroke: clr(accent);
-            fill: clr(accent);
-        }
-    }
-
     & .img-left, & .img-right {
         flex: 1 0 200px;
         max-width: 300px;
