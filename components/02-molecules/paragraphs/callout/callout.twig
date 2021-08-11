@@ -51,11 +51,10 @@
     {% elseif callout_decor == 'corner_dots_accent' %}
         {% set svg, double_dec = "dots", true %}
         {% set decor__mods = decor__mods|merge(['accent']) %}
-        {% set callout__modifiers = callout__modifiers|merge(['overline']) %}
 
     {% elseif callout_decor == 'dots_outline' %}
         {% set svg = "dots" %}
-        {% set decor__mods = decor__mods|merge(['overline']) %}
+        {% set callout__modifiers = callout__modifiers|merge(['overline']) %}
     {% elseif callout_decor == 'dots_outline_accent' %}
         {% set svg = "dots" %}
         {% set decor__mods = decor__mods|merge(['overline', 'accent']) %}

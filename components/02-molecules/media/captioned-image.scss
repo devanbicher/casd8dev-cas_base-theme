@@ -1,0 +1,23 @@
+.captioned-media {
+    margin: 2rem 0;
+
+    &__decor-wrap {
+        position: relative;
+        margin: 1rem 0;
+    }
+
+    & img {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-height: 360px;
+        object-fit: cover;
+    }
+
+    & .caption {
+        font-size: .75rem;
+        color: clr(text-lighter);
+        font-style: italic;
+        
+    }
+}

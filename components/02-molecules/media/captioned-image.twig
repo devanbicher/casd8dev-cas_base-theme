@@ -1,0 +1,15 @@
+{% set media__base_class = 'captioned-media' %}
+
+<div {{ bem(media__base_class, [], media_blockname) }}>
+
+    <div {{ bem('decor-wrap', [], media__base_class) }}>
+        {% include '@atoms/images/icons/decor/_decor.twig' with {
+            pattern: 'slash',
+            pattern2: 'dots',
+            decor_modifiers: ['accent'],
+        } %}
+        {{ img }}
+    </div>
+
+    {{caption}}
+</div>

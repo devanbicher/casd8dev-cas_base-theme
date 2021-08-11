@@ -1,20 +1,21 @@
 .decor {
     position: absolute;
+    z-index: -1;
     top: -$space-double;
     left: -$space-double;
-    z-index: 0;
     width: calc(100% + #{$space-quadruple});
     height: calc(100% + #{$space-quadruple});
     max-width: none;
-    fill: clr(background-gg);
-    stroke: clr(background-gg);
+    color: clr(background-gg);
+    fill: currentColor;
+    stroke: currentColor;
     
     &--accent {
-        stroke: clr(accent);
-        fill: clr(accent);
+        color: clr(accent);
+        stroke: currentColor;
+        fill: currentColor;
 
         & line {
-            stroke: clr(accent);
             fill: none;
         }
         & circle {
@@ -25,10 +26,7 @@
         stroke: none;
 
         & line {
-            stroke: clr(background-gg);
-        }
-        &.decor--accent line {
-            stroke: clr(accent);
+            stroke: currentColor;
         }
     }
     &--top {
@@ -55,11 +53,6 @@
 
     &--dots {
         stroke: none;
-        fill: clr(background-gg);
-
-        &.decor--accent {
-            fill: clr(accent);
-        }
     }
 
 }
