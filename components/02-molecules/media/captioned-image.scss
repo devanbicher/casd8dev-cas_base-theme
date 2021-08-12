@@ -18,8 +18,8 @@
         font-size: .75rem;
         color: clr(text-lighter);
         font-style: italic;
-        padding: 0.5rem 0;
-        border-bottom: 1px solid var(--c-goblet-gray);
+        padding: $space-one-half 0;
+        border-bottom: 1px solid clr(goblet-gray);
         
     }
 }
