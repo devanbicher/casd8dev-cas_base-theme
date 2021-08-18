@@ -10,8 +10,9 @@
         position: relative;
         z-index: 1;
         width: 100%;
-        max-height: 360px;
+        max-height: 400px;
         object-fit: cover;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
     }
 
     & .caption {
@@ -22,5 +23,13 @@
         padding-bottom: 0.5rem;
         border-bottom: 1px solid clr(goblet-gray);
         
+    }
+}
+
+.field__hero {
+    @include large() {
+        width: 120%;
+        max-width: calc(60vw - 4rem);
+        margin-top: -2rem;
     }
 }

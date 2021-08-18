@@ -6,7 +6,6 @@ $main-menu-medium: $medium;
   @include overline(background-neutral, 10px);
   @include large {
     display: block; /* Never shown on large screens */
-    max-width: 300px;
   }
 
   display: none;

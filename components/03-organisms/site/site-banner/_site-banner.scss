@@ -1,6 +1,6 @@
 .banner {
     background-color: clr(background-gg);
-    padding: $space-quadruple 0 $space-double 0;
+    padding: $space-double;
 
     &__inner {
         @include wrapper;

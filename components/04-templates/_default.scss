@@ -2,9 +2,9 @@
  * General Layout
 */
 
-$sidebar-width: 33%;
-$gutter: $space;
-$main-width: calc(100% - (#{$sidebar-width} + #{$gutter}));
+$sidebar-width: minmax(300px, 25%);
+$gutter: $space-sextuple;
+$main-width: calc(100% - (33% + #{$gutter}));
 
 /*
  * Layout Using Flexbox (IE11+).
@@ -57,7 +57,7 @@ $main-width: calc(100% - (#{$sidebar-width} + #{$gutter}));
   &--with-sidebar {
     @include large {
       display: grid;
-      grid-gap: $gutter;
+      grid-gap: calc( #{$gutter} - 2rem);
       grid-template-areas: "sidebar content";
       grid-template-columns: #{$sidebar-width} $main-width;
     }
@@ -67,6 +67,25 @@ $main-width: calc(100% - (#{$sidebar-width} + #{$gutter}));
 .main-sidebar {
   grid-area: sidebar;
   margin-bottom: $space-double;
+  max-width: 480px;
+
+  @include large() {
+    padding-right: 2rem;
+    position: relative;
+    
+    &:after {
+      content: "";
+      background-color: clr(goblet-gray);
+      position: absolute;
+      top: 0;
+      right: 0;
+      max-height: 80vh;
+      height: 100%;
+      width: 1px;
+    }
+  }
+
+
 }
 
 .main-content {

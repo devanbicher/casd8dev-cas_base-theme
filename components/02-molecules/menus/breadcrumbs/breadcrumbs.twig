@@ -16,7 +16,19 @@
     {% for item in breadcrumb %}
       <li {{ bem('item', [], breadcrumb__base_class) }}>
         {% if item.url %}
-          <a {{ bem('link', [], breadcrumb__base_class) }} href="{{ item.url }}">{{ item.text }}</a>
+          {% if item.text is same as('Home') %}
+        
+            <a {{ bem('link', [], breadcrumb__base_class) }} href="{{ item.url }}">
+              {% include "@atoms/images/icons/_icon.twig" with {
+                icon_name: "home",
+                icon_modifiers: ["home"],
+                icon_blockname: 'breadcrumb',
+              } %}
+              {{ item.text }}
+            </a>
+            {% else %}
+              <a {{ bem('link', [], breadcrumb__base_class) }} href="{{ item.url }}">
+          {% endif %}
         {% else %}
           {{ item.text }}
         {% endif %}
