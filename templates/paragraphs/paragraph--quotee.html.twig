@@ -36,19 +36,17 @@
  * @ingroup themeable
  */
 #}
-{#
+{#}
 {%
   set classes = [
-    paragraph.bundle|clean_class,
-    'paragraph-entity'
+    paragraph.bundle|clean_class
   ]
 %}
-<div{{ attributes.addClass(classes) }}>
 #}
-<div>
-  {% include "@molecules/paragraphs/pull-quote/pull-quote.twig" with {
-    pull_quote_body: content.field_body_plain,
-    pull_quote_quotee: content.field_quotee,
-    pull_quote_style: content.field_pull_quote_style['#items'].value,
-  } %}
+<div{{ attributes.addClass(classes) }}>
+{% include "@molecules/paragraphs/quotee/quotee.twig" with {  
+  quotee_image: content.field_image,
+  quotee: content.field_name,
+  quotee_organization: content.field_organization,
+} %}
 </div>

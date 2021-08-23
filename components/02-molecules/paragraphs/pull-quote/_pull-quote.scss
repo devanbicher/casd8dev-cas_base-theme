@@ -1,3 +1,92 @@
 .pull-quote{
-    border-left: solid 1px clr(text-lighter);
+    margin: 30px 0px;
+    @include large() {
+        width: 120%;
+        max-width: calc(60vw - 4rem);
+        position: relative;
+        left: -$space-double;
+    }
+
+    .quote-body{
+        padding-bottom:15px;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+}
+
+.pull-quote--dark_border_left{
+    border-left: 2px solid #d5d5d5; /* highlight for new colors that travis updated. */
+    padding: 20px;
+
+    .quote-body {
+        color: black;
+        font-style: italic;
+    }
+}
+
+@mixin big-quote-before{
+    font-size: 9rem;
+    display:inline-block;
+    content: '“';
+    position: absolute;
+    top: 0rem;        
+    left: 0rem;
+
+    @include large(){
+        top: 4.6rem;        
+        left: 1rem;
+        line-height: 1.5rem;
+    }
+
+
+}
+
+.pull-quote--quote_accent_dots{
+    border-top: 9px solid clr(text-lighter);
+    padding-top: 20px;
+
+
+    .quote-body{
+        color: clr(text-lighter); 
+        /*position relative for the quote */
+        padding-left: 6rem;
+
+        & :before {
+            @include big-quote-before;
+            color: clr(accent);
+        }
+    }
+
+}
+
+.pull-quote--simple_all_grey{
+    border-top: 9px solid clr(text-lighter);
+    padding-top: 20px;
+
+    .quote-body{
+        color: clr(text-lighter);
+        padding-left: 6rem;
+
+        & :before {
+            @include big-quote-before;
+        }
+
+    }
+
+}
+
+.pull-quote--simple_all_accent{
+    border-top: 9px solid clr(accent);
+    padding-top: 20px;
+
+    .quote-body{
+        color: clr(accent);
+        padding-left: 6rem;
+
+        & :before {
+            @include big-quote-before;
+        }
+
+    }
+
 }
