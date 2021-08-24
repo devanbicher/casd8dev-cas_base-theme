@@ -29,26 +29,24 @@
     display:inline-block;
     content: '“';
     position: absolute;
-    top: 0rem;        
+    top: -3rem;        
     left: 0rem;
 
     @include large(){
-        top: 4.6rem;        
+        top: 3.4rem;        
         left: 1rem;
         line-height: 1.5rem;
     }
-
-
 }
 
 .pull-quote--quote_accent_dots{
     border-top: 9px solid clr(text-lighter);
     padding-top: 20px;
-
+    margin-top: 40px;
 
     .quote-body{
         color: clr(text-lighter); 
-        /*position relative for the quote */
+        position: relative;
         padding-left: 6rem;
 
         & :before {
@@ -56,7 +54,6 @@
             color: clr(accent);
         }
     }
-
 }
 
 .pull-quote--simple_all_grey{
@@ -65,14 +62,13 @@
 
     .quote-body{
         color: clr(text-lighter);
+        position: relative;
         padding-left: 6rem;
 
         & :before {
             @include big-quote-before;
         }
-
     }
-
 }
 
 .pull-quote--simple_all_accent{
@@ -81,12 +77,11 @@
 
     .quote-body{
         color: clr(accent);
+        position: relative;
         padding-left: 6rem;
 
         & :before {
             @include big-quote-before;
         }
-
     }
-
 }
