@@ -1,0 +1,30 @@
+{% set announcement_base_class = 'announcement' %}
+
+{% if (image|render) %}
+  <div {{ bem('image', [], announcement_base_class) }} >
+    {{ image }}
+  </div>
+{% endif %}
+
+<div {{ bem('text-wrapper', [], announcement_base_class) }} >
+
+    <div {{ bem('date', [], announcement_base_class) }} >
+      {{ type }} | {{ node.createdtime|format_date('simple_date') }}
+    </div>
+
+  {{ title_prefix }}
+    {% if not page %}
+      {% include "@atoms/text/headings/_heading.twig" with {
+        "heading_level": 2,
+        "heading": label,
+        "heading_url": link,
+      } %}
+    {% endif %}
+    {{ title_suffix }}
+
+  <p>{{ body|render|striptags|truncate(240, true, '...') }}</p>
+  {% if body|render|striptags|length > 240 %}
+    <div {{ bem('simple-button', ['vertical']) }} ><a>Read More</a></div>
+  {% endif %}
+
+</div>

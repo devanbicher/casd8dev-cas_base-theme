@@ -1,0 +1,25 @@
+.lightbox {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .33);
+    z-index: 999;
+
+    &--visible {
+        display: block;
+    }
+}
+
+.lightbox-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 4rem;
+    max-height: 750px;
+    overflow-y: scroll;
+}

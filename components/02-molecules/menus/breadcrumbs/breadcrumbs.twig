@@ -25,10 +25,10 @@
                 icon_blockname: 'breadcrumb',
               } %}
               {{ item.text }}
-            </a>
             {% else %}
               <a {{ bem('link', [], breadcrumb__base_class) }} href="{{ item.url }}">
           {% endif %}
+          </a>
         {% else %}
           {{ item.text }}
         {% endif %}

@@ -1,42 +1,56 @@
 @mixin link-style() {
-    @include no-dec();
-    @include allcaps();
+    & a {
+        @include no-dec();
+        @include allcaps();
 
-    font-size: .625rem;
-    color: clr(text);
-    font-weight: bold;
+        font-size: .625rem;
+        color: clr(text);
+        font-weight: bold;
 
-    &:hover {
-        color: clr(accent);
-    
+        &:hover {
+            color: clr(accent);
+            cursor: pointer;
+        
+            &:after {
+                transform: translateX($space-one-third);
+            }
+        }
+
         &:after {
-            transform: translateX($space-one-third);
+            @include transition();
+
+            content: "→";
+            position: relative;
+            display: inline-block;
+            color: clr(accent);
+            font-size: 1.5em;
+            margin: 0 0.5rem;
         }
     }
-
-    &:after {
-        @include transition();
-
-        content: "→";
-        position: relative;
-        display: inline-block;
-        color: clr(accent);
-        font-size: 1.5em;
-        margin: 0 0.5rem;
+    &--vertical a {
+        &:after {
+            content: '↓';
+        }
+        &:hover:after {
+            transform: translateY($space-one-fourth);
+        }
     }
 }
 
 @mixin button-style() {
-    @include link-style();
-    @include outline(accent, 1px);
 
-    padding: $space-one-half $space-one-half $space-one-half $space;
+    @include link-style();
+
+    a {
+        @include outline(accent, 1px);
+        padding: $space-one-half $space-one-half $space-one-half $space;
+    }
 }
 
-.simple-link a {
+.simple-link {
     @include link-style();
 }
 
-.simple-button a {
+.simple-button {
     @include button-style();
 }

@@ -1,0 +1,24 @@
+.announcement {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 4rem;
+
+    @include underline(goblet-gray);
+
+    &__image {
+        flex: 0 0 204px;
+    }
+
+    &__text-wrapper {
+        flex: 1 1 400px;
+        margin-bottom: 2rem;
+    }
+
+    &__date {
+        @include allcaps();
+        font-size: .75rem;
+        color: clr(accent-readable);
+        margin-bottom: $space-one-half;
+    }
+}

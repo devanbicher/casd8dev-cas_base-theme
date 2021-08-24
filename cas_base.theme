@@ -32,3 +32,5 @@ function cas_base_preprocess_block__footeraddress(&$vars) {
     $vars['site_slogan'] = $site_config->get('slogan');
 
 }
+
+

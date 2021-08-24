@@ -1,0 +1,8 @@
+.field__type {
+    @include allcaps();
+
+    display: inline;
+    color: clr(accent-readable);
+    font-weight: 600;
+    font-size: .75rem;
+}

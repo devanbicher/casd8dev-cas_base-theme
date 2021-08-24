@@ -29,6 +29,9 @@
       transition: .15s;
       outline: none;
     }
+    &--active {
+      background-color: clr(background-neutral);
+    }
 
     .main-nav--page-top & {
       font-size: 1.5rem;
