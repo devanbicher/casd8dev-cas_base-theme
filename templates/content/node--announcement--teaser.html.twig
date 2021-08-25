@@ -71,23 +71,12 @@
  */
 #}
 <article {{ bem("node") }} {{ attributes }}>
-  <div{{ content_attributes }} {{ bem('announcement') }} >
+  <div{{ content_attributes }} {{ bem('announcement', [], '', 'lightbox-parent') }} >
     {% include "@molecules/displays/announcement-teaser.twig" with {
       body: content.body,
       type: content.field_type,
       link: content.field_alternate_link[0]['#url'],
       image: content.field_image
     } %}
-    {% embed "@molecules/lightbox/lightbox.twig" %}
-      {% block content %}
-          {% include "@molecules/displays/announcement.twig" with {
-            body: content.body,
-            type: content.field_type,
-            link: content.field_alternate_link[0]['#url'],
-            image: content.field_image
-          } %}
-      {% endblock %}
-    {% endembed %}
   </div>
-
 </article>

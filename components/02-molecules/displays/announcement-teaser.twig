@@ -24,7 +24,20 @@
 
   <p>{{ body|render|striptags|truncate(240, true, '...') }}</p>
   {% if body|render|striptags|length > 240 %}
-    <div {{ bem('simple-button', ['vertical']) }} ><a>Read More</a></div>
+    <div {{ bem('simple-button', ['vertical'], '', 'lightbox-trigger') }} ><button>Read More</button></div>
   {% endif %}
 
 </div>
+
+{% if body|render|striptags|length > 240 %}
+  {% embed "@molecules/lightbox/lightbox.twig" %}
+    {% block content %}
+        {% include "@molecules/displays/announcement.twig" with {
+          body: body,
+          type: type,
+          link: link,
+          image: image,
+        } %}
+    {% endblock %}
+  {% endembed %}
+{% endif %}

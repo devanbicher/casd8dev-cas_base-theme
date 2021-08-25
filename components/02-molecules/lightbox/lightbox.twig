@@ -1,8 +1,10 @@
+{{ attach_library('cas_base/lightbox') }}
+
 <div {{ bem('lightbox', []) }} >
     <div {{ bem('lightbox-content', []) }}>
-{% block content %}
-    <div>content goes here</div>
-{% endblock %}
-
+        {% block content %}
+            <div>content goes here</div>
+        {% endblock %}
+        <div {{ bem('lightbox-close') }} ><button>×</button></div>
     </div>
 </div>

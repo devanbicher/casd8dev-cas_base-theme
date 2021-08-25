@@ -16,13 +16,13 @@
  */
 #}
 
-{% embed "@organisms/grid/grid.twig" with {
+{# {% embed "@organisms/grid/grid.twig" with {
   grid_type: 'card',
   grid_label: title
 } %}
-  {% block grid_content %}
+  {% block grid_content %} #}
     {% for row in rows %}
       {{ row.content }}
     {% endfor %}
-  {% endblock %}
-{% endembed %}
+  {# {% endblock %}
+{% endembed %} #}

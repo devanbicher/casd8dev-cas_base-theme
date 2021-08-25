@@ -1,5 +1,5 @@
 @mixin link-style() {
-    & a {
+    & a, button {
         @include no-dec();
         @include allcaps();
 
@@ -27,7 +27,7 @@
             margin: 0 0.5rem;
         }
     }
-    &--vertical a {
+    &--vertical a, button {
         &:after {
             content: '↓';
         }
@@ -41,8 +41,11 @@
 
     @include link-style();
 
-    a {
+    a, button {
         @include outline(accent, 1px);
+        border-radius: 0;
+        background: none;
+        display: inline-block;
         padding: $space-one-half $space-one-half $space-one-half $space;
     }
 }
