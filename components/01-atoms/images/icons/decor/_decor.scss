@@ -56,3 +56,25 @@
     }
 
 }
+
+.link__decor--external {
+    stroke: currentColor;
+    fill: none;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+    
+    .arrow-head, .arrow-shaft, .arrow-box {
+        transform: translate(0, 0);
+        transition: transform .2s;
+    }
+
+    .external:hover & .arrow-head, .external:hover & .arrow-shaft {
+        transform: translate(1px, -1px);
+    }
+    .external:hover & .arrow-box {
+        transform: translate(-1px, 1px);
+    }
+}

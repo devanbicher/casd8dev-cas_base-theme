@@ -2,20 +2,20 @@
  * Generic header styles:
  * All arguments are optional. If not defined, the defaults below will be used
 */
+$color-link-hover: clr(accent-readable);
+$color-heading: clr(lehigh);
+
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
+  position: relative;
 }
-
-$color-heading: clr(lehigh);
-
 @mixin heading-xl(
   $font-family: $font-serif,
   $font-size: 2rem,
   $line-height: 1.25em,
   $color: $color-heading,
   $color-link: inherit,
-  $color-link-hover: inherit,
   $font-weight: 700,
   $margin: 0 0 0.5em
 ) {
@@ -43,7 +43,6 @@ $color-heading: clr(lehigh);
   $line-height: 1.25em,
   $color: $color-heading,
   $color-link: inherit,
-  $color-link-hover: inherit,
   $font-weight: 700,
   $margin: 0 0 0.5em
 ) {
@@ -71,7 +70,6 @@ $color-heading: clr(lehigh);
   $line-height: 1.25em,
   $color: $color-heading,
   $color-link: inherit,
-  $color-link-hover: inherit,
   $font-weight: 700,
   $margin: 0 0 0.5em
 ) {
@@ -99,7 +97,6 @@ $color-heading: clr(lehigh);
   $line-height: 1.25em,
   $color: $color-heading,
   $color-link: inherit,
-  $color-link-hover: inherit,
   $font-weight: 600,
   $margin: 0 0 0.5em
 ) {
@@ -127,7 +124,6 @@ $color-heading: clr(lehigh);
   $line-height: 1.25em,
   $color: $color-heading,
   $color-link: inherit,
-  $color-link-hover: inherit,
   $font-weight: 600,
   $margin: 0 0 0.5em
 ) {

@@ -2,6 +2,13 @@
     {% set decor_modifiers = [] %}
 {% endif %}
 {% set id = random(1000000)  %}
+{% if pattern is same as("external") %}
+    <div {{ bem('decor', [pattern], 'link') }}>
+        {% include '@atoms/images/icons/decor/_' ~ pattern ~ '.twig' %}
+    </div>
+    {% set pattern = false %}
+{% endif %}
+
 {% if (pattern and pattern2) %}
     <div {{ bem('decor', ['top', pattern]|merge(decor_modifiers), decor_blockname) }}>
         {% include '@atoms/images/icons/decor/_' ~ pattern ~ '.twig' %}
