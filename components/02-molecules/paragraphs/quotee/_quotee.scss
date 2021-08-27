@@ -1,0 +1,12 @@
+.quotee {
+    
+    & .quotee-name{
+        color: clr(accent);
+    }   
+
+
+    & .quotee-organization{
+        color: clr(text-lighter); /* highlight for new colors that travis updated. */
+    }
+
+}

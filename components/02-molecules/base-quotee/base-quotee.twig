@@ -1,0 +1,19 @@
+{#
+ #   Available Variables:
+
+#}
+{% set generic_quotee__base_class = 'generic-quotee' %}
+
+<div {{ bem(generic_quotee__base_class,[]) }} >
+    <div class="quotee-thumbnail">
+        {{ generic_quotee_image }}
+    </div>
+    <div class="quotee-reference-text">
+        <div class="quotee-name">
+            {{ generic_quotee }}
+        </div>
+        <div class="quotee-organization">
+            {{ generic_quotee_organization }}
+        </div>
+    </div>
+</div> 
