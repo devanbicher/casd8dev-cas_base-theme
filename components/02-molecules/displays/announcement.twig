@@ -1,7 +1,10 @@
 {% set announcement_base_class = 'announcement' %}
 
 {% if (image|render) %}
-  <div {{ bem('image', [], announcement_base_class) }} >
+  <div {{ bem('image', ['full'], announcement_base_class) }} >
+   {% include '@atoms/images/icons/decor/_decor.twig' with {
+      pattern: 'dots',
+    } %}
     {{ image }}
   </div>
 {% endif %}

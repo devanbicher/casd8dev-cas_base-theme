@@ -122,3 +122,7 @@ $outer-container-break: $small;
   letter-spacing: .15em;
   font-weight: 500;
 }
+
+@mixin shadow {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
+}

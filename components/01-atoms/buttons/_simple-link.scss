@@ -19,7 +19,7 @@
         &:after {
             @include transition();
 
-            content: "→";
+            content: "\2192";
             position: relative;
             display: inline-block;
             color: clr(accent);
@@ -29,7 +29,7 @@
     }
     &--vertical a, button {
         &:after {
-            content: '↓';
+            content: '\2193';
         }
         &:hover:after {
             transform: translateY($space-one-fourth);

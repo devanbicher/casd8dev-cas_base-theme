@@ -8,6 +8,24 @@
 
     &__image {
         flex: 0 0 204px;
+
+        & img {
+            width: 204px;
+            height: 204px;
+            object-fit: cover;
+        }
+
+        &--full {
+            position: relative;
+            margin-bottom: $space-quadruple;
+
+            & img {
+                width: 100%;
+                max-height: 480px;
+                height: unset;
+                @include shadow();
+            }
+        }
     }
 
     &__text-wrapper {

@@ -15,9 +15,11 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: white;
-        padding: 4rem;
+        padding: 6rem;
         max-height: 90vh;
+        max-width: 860px;
         overflow-y: scroll;
+        border-radius: 5px;
     }
 
     &--visible {

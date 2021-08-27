@@ -3,6 +3,8 @@
 */
 @mixin paragraph($margin: 0 0 1em) {
   margin: $margin;
+  letter-spacing: 0.25px;
+  line-height: 2;
 }
 
 .paragraph {

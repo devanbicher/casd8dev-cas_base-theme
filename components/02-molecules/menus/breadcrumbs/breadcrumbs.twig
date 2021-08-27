@@ -26,7 +26,7 @@
               } %}
               {{ item.text }}
             {% else %}
-              <a {{ bem('link', [], breadcrumb__base_class) }} href="{{ item.url }}">
+              <a {{ bem('link', [], breadcrumb__base_class) }} href="{{ item.url }}">{{ item.text }}
           {% endif %}
           </a>
         {% else %}
