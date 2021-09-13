@@ -1,0 +1,37 @@
+{#
+ #   Available Variables:
+
+#}
+{% set pull_quote__base_class = 'pull-quote' %}
+
+{% set pull_quote__modifiers = [] %}
+
+{% if pull_quote_style %}
+
+    {% if pull_quote_style == "dark_border_left" %}
+        {% set pull_quote__modifiers = pull_quote__modifiers|merge(['dark_border_left']) %}
+    {% elseif pull_quote_style == "quote_accent_dots" %}
+        {% set pull_quote__modifiers = pull_quote__modifiers|merge(['quote_accent_dots']) %}
+    {% elseif pull_quote_style == "simple_all_grey" %}
+        {% set pull_quote__modifiers = pull_quote__modifiers|merge(['simple_all_grey']) %}
+    {% elseif pull_quote_style == "simple_all_accent" %}
+        {% set pull_quote__modifiers = pull_quote__modifiers|merge(['simple_all_accent']) %}
+    {% endif %}
+
+{% endif %}
+
+
+<div {{ bem(pull_quote__base_class, pull_quote__modifiers) }} >
+    {% if pull_quote_style == "quote_accent_dots" %}
+        {% include '@atoms/images/icons/decor/_decor.twig' with {
+            pattern: 'dots',
+            decor_modifiers: ['accent','top-full'],
+        } %}
+    {% endif %}
+    <div class="quote-body">
+    {{ pull_quote_body }}
+    </div>
+
+    {{ pull_quote_quotee }}
+
+</div> 

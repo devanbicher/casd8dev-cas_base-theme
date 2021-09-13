@@ -1,0 +1,14 @@
+{#
+ #   Available Variables:
+
+#}
+{% set quotee__base_class = 'quotee' %}
+
+<div {{ bem(quotee__base_class,[]) }} >
+    {% include '@molecules/base-quotee/base-quotee.twig' with {
+            generic_quotee_image: quotee_image,
+            generic_quotee: quotee,
+            generic_quotee_organization: quotee_organization,
+    } %}
+
+</div> 

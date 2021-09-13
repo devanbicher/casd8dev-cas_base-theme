@@ -1,0 +1,26 @@
+.generic-quotee {
+    display:flex;
+    align-items:center;
+
+    img {
+        border-radius: 50%;
+    }
+
+    & .quotee-reference-text{
+        margin-left: 18px;
+    }
+
+    & .quotee-name{ 
+        font-weight: 500;
+    
+        & :before {
+            content: '—';
+        }
+    }
+
+    & .quotee-organization{
+        font-size: .8rem;
+        text-transform:uppercase;
+    }
+
+}
