@@ -26,6 +26,7 @@ Drupal.behaviors.mainMenu = {
             menuParent.toggleClass('main-menu__item--open');
           });
         });
+        $(".main-menu__item--active:has(ul)").find('.menu__sub-wrapper .main-menu__link').css('background-color', 'initial');
       }
    },
 };
