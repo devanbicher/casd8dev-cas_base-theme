@@ -27,7 +27,7 @@
 @mixin big-quote-before{
     font-size: 9rem;
     display:inline-block;
-    content: '“';
+    content: "\201C";
     position: absolute;
     top: -3rem;        
     left: 0rem;
