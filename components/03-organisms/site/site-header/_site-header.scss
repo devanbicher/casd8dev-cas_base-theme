@@ -1,5 +1,5 @@
 .header {
-  padding: $space $space-double 0;
+  padding: 0 $space-double 0;
   background-color: clr(highlight-high);
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .16);
   position: relative;
@@ -18,7 +18,7 @@
     flex-flow: row wrap;
     gap: $space;
     justify-content: space-between;
-    padding: $space 0;
+    padding: $space-one-half 0;
 
     @media (max-width: 919px) {
         flex-direction: column;

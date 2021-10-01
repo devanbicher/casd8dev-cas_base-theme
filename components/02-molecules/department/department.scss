@@ -4,6 +4,20 @@
 
     color: clr(lehigh);
     font-size: .75em;
+    width: fit-content;
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: -2px;
+        right: -0.4rem;
+        transform: translateX(2rem);
+        width: 2rem;
+        height: 1px;
+        background-color: var(--c-accent);
+        margin: .5rem 0;
+    }
 
 }
 .department__name {
