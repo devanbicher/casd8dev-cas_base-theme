@@ -91,6 +91,12 @@ $main-width: calc(100% - (33% + #{$gutter}));
 .main-content {
   grid-area: content;
   max-width: 800px;
+
+  & .text-long {
+    @include medium {
+      margin-left: $space-quadruple;
+    }
+  }
 } 
 
 #sidebar {
