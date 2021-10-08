@@ -8,6 +8,7 @@
   &__inner {
     @include wrapper;
 
+    max-width: none;
     display: flex;
     flex-flow: column nowrap;
   }
