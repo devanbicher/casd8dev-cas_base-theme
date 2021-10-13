@@ -1,0 +1,45 @@
+{#
+    calendar_link is set for alternate link
+    primary_link is set for primary_link
+
+#}
+
+
+{% set simple_event__base_class = 'simple-event' %}
+
+<div {{bem(simple_event__base_class,[]) }} >
+    <div class="simple-event-wrapper">
+        <div class="simple-event-image">
+            {{ event_image }}
+        </div>
+        <div class="simple-event-side-text">
+            <div class="event-title">{{event_title}}</div>
+            
+            {{event_date}}
+            {{ranged_date}}
+
+            {# if ranged date see if I can display like chris showed, 
+            if start date only just display start date in normal display format.
+            #}
+
+            {{geo_location_lat}}
+            {{geo_location_long}}
+
+            {{text_location}}
+
+            {# if just text location  just display that with no image
+                elseif just geo location, maps link, something link 'view on google maps
+                else location title with link to maps.
+            #}
+
+            {{primary_link}}
+            {% if calendar_link %}
+                <div class="simple-link">
+                    <a href="{{calendar_link}}">View on the Lehigh Calendar</a>
+                </div>
+            {% endif %}
+        
+            {{body}}
+        </div>
+    </div>
+</div>

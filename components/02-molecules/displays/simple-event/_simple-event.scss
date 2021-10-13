@@ -1,0 +1,15 @@
+// comment
+
+.simple-event {
+
+    .simple-event-wrapper{
+        border: 2px solid clr(goblet-gray);
+        display: flex;
+        gap: 30px;
+    }
+
+    .event-title{
+    @include heading-large;
+    }
+
+}
