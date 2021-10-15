@@ -9,14 +9,16 @@
         }
     %}
         {% block link_content %}
-            {% include "@atoms/text/headings/_heading.twig" with
-                {
-                    heading_level: '2',
-                    heading: site_slogan,
-                    heading_base_class: 'slogan',
-                    heading_blockname: department__base_class,
-                }
-            %}
+            {% if site_slogan %}
+                {% include "@atoms/text/headings/_heading.twig" with
+                    {
+                        heading_level: '2',
+                        heading: site_slogan,
+                        heading_base_class: 'slogan',
+                        heading_blockname: department__base_class,
+                    }
+                %}
+            {% endif %}
             {% include "@atoms/text/headings/_heading.twig" with
                 {
                     heading_level: '2',

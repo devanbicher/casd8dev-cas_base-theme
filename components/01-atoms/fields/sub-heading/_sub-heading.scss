@@ -9,7 +9,7 @@
     font-size: 2rem;
     color: clr(lehigh);
 
-    &:after {
+    &::after {
         content: '';
         display: block;
         width: 40%;

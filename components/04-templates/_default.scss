@@ -73,7 +73,7 @@ $main-width: calc(100% - (33% + #{$gutter}));
     padding-right: 2rem;
     position: relative;
     
-    &:after {
+    &::after {
       content: "";
       background-color: clr(goblet-gray);
       position: absolute;
@@ -91,6 +91,11 @@ $main-width: calc(100% - (33% + #{$gutter}));
 .main-content {
   grid-area: content;
   max-width: 800px;
+  
+  & #block-precontent {
+    @include underline(goblet-gray);
+    @include margin();
+  }
 
   & .text-long {
     @include medium {
