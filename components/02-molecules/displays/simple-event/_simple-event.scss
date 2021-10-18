@@ -6,10 +6,25 @@
         border: 2px solid clr(goblet-gray);
         display: flex;
         gap: 30px;
+        margin-bottom: 50px;
     }
 
     .event-title{
-    @include heading-large;
+        @include heading-large;
+    }
+
+    .simple-event-special-info{
+        // a comment
+    }
+
+
+    .simple-event-location,
+    .simple-event-location div    {
+        display: inline-block;
+    }   
+
+    .simple-event-body{
+        margin-top: 30px;
     }
 
 }

@@ -15,22 +15,29 @@
         <div class="simple-event-side-text">
             <div class="event-title">{{event_title}}</div>
             
-            {{event_date}}
-            {{ranged_date}}
+            <div class="simple-event-special-info">
+            
+            {% if ranged_date %}
+                {{ranged_date}}
+            {% elseif event_date %}
+                {{event_date}}
+            {% endif %}
+            
 
             {# if ranged date see if I can display like chris showed, 
             if start date only just display start date in normal display format.
             #}
-
-            {{geo_location_lat}}
-            {{geo_location_long}}
-
-            {{text_location}}
-
-            {# if just text location  just display that with no image
-                elseif just geo location, maps link, something link 'view on google maps
-                else location title with link to maps.
-            #}
+        
+            {# Location stuff #}
+            <div class="simple-event-location">
+            {% if geo_location_lat and geo_location_long and not text_location %}
+                    <a href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">View Location on Google Maps</a>
+            {% elseif  not (geo_location_lat and geo_location_long) and text_location %}   
+                    Location: {{text_location}}
+            {% elseif geo_location_lat and geo_location_long and text_location %}
+                    Location: <a href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">{{text_location}}</a>
+            {% endif %}
+            </div>
 
             {{primary_link}}
             {% if calendar_link %}
@@ -38,8 +45,12 @@
                     <a href="{{calendar_link}}">View on the Lehigh Calendar</a>
                 </div>
             {% endif %}
-        
-            {{body}}
+            </div>
+
+            <div class= "simple-event-body">
+                {{body}}
+            </div>
+
         </div>
     </div>
 </div>
