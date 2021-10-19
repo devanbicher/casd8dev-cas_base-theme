@@ -73,16 +73,16 @@ $main-width: calc(100% - (33% + #{$gutter}));
     padding-right: 2rem;
     position: relative;
     
-    &::after {
-      content: "";
-      background-color: clr(goblet-gray);
-      position: absolute;
-      top: 0;
-      right: 0;
-      max-height: 80vh;
-      height: 100%;
-      width: 1px;
-    }
+    // &::after {
+    //   content: "";
+    //   background-color: clr(goblet-gray);
+    //   position: absolute;
+    //   top: 0;
+    //   right: 0;
+    //   max-height: 80vh;
+    //   height: 100%;
+    //   width: 1px;
+    // }
   }
 
 
