@@ -1,5 +1,5 @@
 .captioned-media {
-    margin: 2rem 0;
+    margin: 4rem 0 2rem 0;
 
     &__decor-wrap {
         position: relative;
@@ -31,6 +31,5 @@
     @include large() {
         width: 120%;
         max-width: calc(60vw - 4rem);
-        margin-top: -2rem;
     }
 }

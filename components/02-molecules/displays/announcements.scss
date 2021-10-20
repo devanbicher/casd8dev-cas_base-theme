@@ -35,6 +35,7 @@
 
     &__date {
         @include allcaps();
+        
         font-size: .75rem;
         color: clr(accent-readable);
         margin-bottom: $space-one-half;

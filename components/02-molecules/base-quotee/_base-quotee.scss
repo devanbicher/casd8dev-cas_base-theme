@@ -13,14 +13,14 @@
     & .quotee-name{ 
         font-weight: 500;
     
-        & :before {
+        &::before {
             content: '—';
         }
     }
 
     & .quotee-organization{
         font-size: .8rem;
-        text-transform:uppercase;
+        text-transform: uppercase;
     }
 
 }

@@ -8,14 +8,19 @@
       <div {{ bem('branding', [], header__base_class) }}>
         {% include "@molecules/logos/fulllogo/fulllogo.twig" %}
       </div>
-      <div {{ bem('site-name', [], header__base_class) }}>
+      {# <div {{ bem('site-name', [], header__base_class) }}>
         {% include "@molecules/department/department.twig" %}
-      </div>
+      </div> #}
     </div>
-    <div {{ bem('menu', [], header__base_class) }}>
-      {% block header__menu %}
-        {% include "@molecules/menus/topnav/topnav.twig" %}
-      {% endblock %}
+    <div {{ bem('secondary', [], header__base_class) }}>
+      <div {{ bem('site-name', [], header__base_class) }}>
+          {% include "@molecules/department/department.twig" %}
+      </div>
+      <div {{ bem('menu', [], header__base_class) }}>
+        {% block header__menu %}
+          {% include "@molecules/menus/topnav/topnav.twig" %}
+        {% endblock %}
+      </div>
     </div>
   </div>
 </header>

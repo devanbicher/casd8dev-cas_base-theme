@@ -39,7 +39,8 @@
  * @see template_preprocess_table()
  */
 #}
-<table{{ attributes.addClass('table') }}>
+
+<table{{ attributes.addClass('table', 'tablesaw', 'tablesaw-stack') }}>
   {% if caption %}
     <caption>{{ caption }}</caption>
   {% endif %}
