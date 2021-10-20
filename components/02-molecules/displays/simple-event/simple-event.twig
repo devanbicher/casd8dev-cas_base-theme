@@ -17,32 +17,39 @@
             
             <div class="simple-event-special-info">
             
+            {# this needs to be fixed to try and extract the start date from the ranged date field so that the xml feed can work properly #}
             {% if ranged_date %}
                 {{ranged_date}}
             {% elseif event_date %}
                 {{event_date}}
             {% endif %}
-            
-
-            {# if ranged date see if I can display like chris showed, 
-            if start date only just display start date in normal display format.
-            #}
+        
         
             {# Location stuff #}
             <div class="simple-event-location">
             {% if geo_location_lat and geo_location_long and not text_location %}
-                    <a href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">View Location on Google Maps</a>
+                    <a class="link" href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">View Location on Google Maps</a>
             {% elseif  not (geo_location_lat and geo_location_long) and text_location %}   
                     Location: {{text_location}}
             {% elseif geo_location_lat and geo_location_long and text_location %}
-                    Location: <a href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">{{text_location}}</a>
+                    Location: <a class="link"  href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">{{text_location}}</a>
             {% endif %}
             </div>
 
-            {{primary_link}}
+            {# for now the primary link is for registration links only #}
+            {% if primary_link %}
+                {# uncomment and remove the next div if you want to apply the  link styling with the arrow ( I prefer that one. )
+                <div class="simple-link"> #}
+                <div>
+                    <a class="link" href="{{primary_link}}" target="_blank">Register for Virtual Event</a>
+                </div>
+                {% endif %}
+
             {% if calendar_link %}
-                <div class="simple-link">
-                    <a href="{{calendar_link}}">View on the Lehigh Calendar</a>
+               {# uncomment and remove the next div if you want to apply the  link styling with the arrow ( I prefer that one. )
+                <div class="simple-link"> #}
+                <div>
+                    <a class="link" href="{{calendar_link}}" target="_blank">View on the Lehigh Calendar</a>
                 </div>
             {% endif %}
             </div>
@@ -50,6 +57,14 @@
             <div class= "simple-event-body">
                 {{body}}
             </div>
+
+
+            {% if is_teaser %}
+                {% set node_link = '<a href="/node/' ~ node_id ~ '">View Full Event Details</a>' %}
+                <div class="simple-button">
+                    <a href="/node/{{node_id}}">View Full Event Details</a>
+                </div>
+                {% endif %}
 
         </div>
     </div>

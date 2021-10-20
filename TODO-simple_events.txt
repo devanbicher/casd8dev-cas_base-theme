@@ -1,0 +1,23 @@
+1. alignment and sizing issue on full page view.
+2. icons
+    a. location
+    b. virtual
+    c. date
+3. calendar icon
+4. width of box on individual page and view
+
+things to discuss
+
+date issue:  looks like we basically need the smart date.  we can't use the range date without an end date or a stupid patch.
+    we can't pull 1 date feed itme into 2 fields without a module or custom code.  
+    we can't seperate the date and time (with a simple date/ date range field) without a lot of work. 
+
+location: we can't have both a map and a maps link
+
+we can't really pull in multiple department tags without a lot of work, or another module, etc. 
+
+This was supposed to be a 'simple' event.  Once we make what we have work into Chris's design we should move on.  
+    I've learned some stuff we can use in the more sophisticated event type.
+
+
+after discussion document decisions, considerations and drawbacks in confluence. 

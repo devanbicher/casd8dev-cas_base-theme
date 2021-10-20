@@ -104,6 +104,7 @@
 
   {#} {{vardumper(content.field_geo_address)}} #}
 
+
   {% if content.field_location_text|render  %}
     {% set location_text = content.field_location_text %}
     {% else %}
@@ -115,18 +116,22 @@
     event_title: node.title(),
     
     event_date: content.field_simple_date,
-    ranged_date: content.field_ranged_date,
+    ranged_date: content.field_ranged_date|render,
 
     geo_location_lat: content.field_geo_address[0]['#lat'],
     geo_location_long: content.field_geo_address[0]['#lng'],
     
-    text_location: location_text,    
+    text_location: location_text|render,
 
-    primary_link: content.field_primary_link,
+    primary_link: node.field_primary_link.0.uri,
     calendar_link: node.field_alternate_link.0.uri,
     
 
-    body: content.body
+    body: content.body,
+
+    is_teaser: teaser,
+    node_id: node.id(),
+
     }
   %}
 

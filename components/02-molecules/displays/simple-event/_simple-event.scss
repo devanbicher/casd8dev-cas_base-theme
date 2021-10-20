@@ -7,10 +7,16 @@
         display: flex;
         gap: 30px;
         margin-bottom: 50px;
+        padding: 25px;
+    }
+
+    .simple-event-image img{
+        min-width: 180px;
+
     }
 
     .event-title{
-        @include heading-large;
+        @include heading-medium;
     }
 
     .simple-event-special-info{
