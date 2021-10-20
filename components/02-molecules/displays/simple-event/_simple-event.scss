@@ -5,14 +5,26 @@
     .simple-event-wrapper{
         border: 2px solid clr(goblet-gray);
         display: flex;
-        gap: 30px;
+        gap: $space-double;
         margin-bottom: 50px;
         padding: 25px;
+        flex-wrap: wrap;
     }
 
-    .simple-event-image img{
-        min-width: 180px;
+    .simple-event-image{
+        flex: 1 0 180px;
+        //max-width: 250px;
+        //width: 33%
 
+
+        img {
+            width: 100%
+
+        }
+        
+    }
+    .simple-event-side-text{
+        flex: 1 1 400px;
     }
 
     .event-title{
@@ -31,6 +43,11 @@
 
     .simple-event-body{
         margin-top: 30px;
+    }
+
+    .simple-event-map{
+        width: 100%;
+
     }
 
 }

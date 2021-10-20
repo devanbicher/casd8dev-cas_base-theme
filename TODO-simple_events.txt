@@ -1,4 +1,5 @@
-1. alignment and sizing issue on full page view.
+
+
 Travis is working on these
 2. icons
     a. location
@@ -11,19 +12,15 @@ make sure there are no missing closing divs
 
 things to discuss
 
-date issue:  looks like we basically need the smart date.  we can't use the range date without an end date or a stupid patch.
-    we can't pull 1 date feed itme into 2 fields without a module or custom code.  
-    we can't seperate the date and time (with a simple date/ date range field) without a lot of work. 
-
-location: we can't have both a map and a maps link
 
 we can't really pull in multiple department tags without a lot of work, or another module, etc. 
 
-This was supposed to be a 'simple' event.  Once we make what we have work into Chris's design we should move on.  
-    I've learned some stuff we can use in the more sophisticated event type.
-
 
 after discussion document decisions, considerations and drawbacks in confluence. 
+
+date issue:  looks like we basically need the smart date.  we can't use the range date without an end date or a stupid patch.
+    we can't pull 1 date feed itme into 2 fields without a module or custom code.  
+    we can't seperate the date and time (with a simple date/ date range field) without a lot of work. 
 
 
 One solution for the date, is if smart date doesn't do exactly what we want. use a hook in the event module to make the end date the same as the start date, if there isn't an end date. 

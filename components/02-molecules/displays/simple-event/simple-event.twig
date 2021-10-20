@@ -58,9 +58,7 @@
                 {{body}}
             </div>
 
-            {% if not is_teaser %}
-                {{geo_location_map}}
-            {% endif %}
+
 
 
             {% if is_teaser %}
@@ -78,5 +76,12 @@
             {% endif %}
 
         </div>
+
+        <div class="simple-event-map">
+            {% if not is_teaser %}
+                {{geo_location_map}}
+            {% endif %}
+        </div>
+
     </div>
 </div>
