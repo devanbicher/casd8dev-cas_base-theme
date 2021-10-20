@@ -11,12 +11,12 @@
             color: clr(accent);
             cursor: pointer;
         
-            &:after {
+            &::after {
                 transform: translateX($space-one-third);
             }
         }
 
-        &:after {
+        &::after {
             @include transition();
 
             content: "\2192";
@@ -28,10 +28,10 @@
         }
     }
     &--vertical a, button {
-        &:after {
+        &::after {
             content: '\2193';
         }
-        &:hover:after {
+        &:hover::after {
             transform: translateY($space-one-fourth);
         }
     }
@@ -43,6 +43,7 @@
 
     a, button {
         @include outline(accent, 1px);
+        
         border-radius: 0;
         background: none;
         display: inline-block;

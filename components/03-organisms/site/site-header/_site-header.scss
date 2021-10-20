@@ -1,5 +1,5 @@
 .header {
-  padding: $space $space-double 0;
+  padding: 0 $space-double 0;
   background-color: clr(highlight-high);
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .16);
   position: relative;
@@ -8,23 +8,25 @@
   &__inner {
     @include wrapper;
 
+    max-width: none;
     display: flex;
     flex-flow: column nowrap;
   }
 
   &__primary {
-    display: flex;
-    align-items: center;
-    flex-flow: row wrap;
-    gap: $space;
-    justify-content: space-between;
-    padding: $space 0;
+    @include underline(goblet-gray);
 
-    @media (max-width: 919px) {
-        flex-direction: column;
-        align-items: center;
-      }
+    padding: $space-one-half 0;
+    margin-bottom: 1rem;
+  }
 
+  &__secondary {
+    display: grid;
+    @include large() {
+      grid-template-columns: minmax(320px, 1fr) 2fr;
+    }
+
+    padding-bottom: 1rem;
   }
 
   &__branding {
