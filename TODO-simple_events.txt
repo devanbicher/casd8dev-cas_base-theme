@@ -1,10 +1,13 @@
 1. alignment and sizing issue on full page view.
+Travis is working on these
 2. icons
     a. location
     b. virtual
     c. date
-3. calendar icon
+3. calendar icon   -- do with the email icon for now 
+
 4. width of box on individual page and view
+make sure there are no missing closing divs
 
 things to discuss
 
@@ -21,3 +24,7 @@ This was supposed to be a 'simple' event.  Once we make what we have work into C
 
 
 after discussion document decisions, considerations and drawbacks in confluence. 
+
+
+One solution for the date, is if smart date doesn't do exactly what we want. use a hook in the event module to make the end date the same as the start date, if there isn't an end date. 
+Then in twig use some simple logic with the dates to only display the time in a different field if the date is the same 

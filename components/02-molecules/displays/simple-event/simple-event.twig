@@ -58,13 +58,24 @@
                 {{body}}
             </div>
 
+         {% if not is_teaser %}
+            {{geo_location_map}}
+        {% endif %}
+
 
             {% if is_teaser %}
-                {% set node_link = '<a href="/node/' ~ node_id ~ '">View Full Event Details</a>' %}
+                {% set node_link = '<a href="/node/{{node_id}}">View Full Event Details</a>' %}
+                
                 <div class="simple-button">
                     <a href="/node/{{node_id}}">View Full Event Details</a>
                 </div>
-                {% endif %}
+                {#
+                 {% include '@atoms/buttons/simple-link.twig' with {
+                    link_content: node_link|render,
+                } %}
+                #}
+
+            {% endif %}
 
         </div>
     </div>
