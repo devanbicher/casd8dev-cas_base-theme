@@ -41,18 +41,18 @@
 
 {% if label_hidden %}
   {% if multiple %}
-    <div{{ attributes.addClass('text-long') }}>
+    <div{{ attributes.addClass('text-long', 'body-text') }}>
       {% for item in items %}
         <div{{ item.attributes }}>{{ item.content }}</div>
       {% endfor %}
     </div>
   {% else %}
     {% for item in items %}
-      <div{{ attributes.addClass('text-long') }}>{{ item.content }}</div>
+      <div{{ attributes.addClass('text-long', 'body-text') }}>{{ item.content }}</div>
     {% endfor %}
   {% endif %}
 {% else %}
-  <div{{ attributes.addClass('text-long') }}>
+  <div{{ attributes.addClass('text-long', 'body-text') }}>
     <div{{ title_attributes }}>{{ label }}</div>
     {% if multiple %}
       <div>

@@ -19,6 +19,7 @@ body {
   min-height: 100vh;
   display: flex; /* allows Main region to force footer to bottom when needed */
   flex-direction: column;
+  position: relative;
 }
 
 .main {

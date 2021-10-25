@@ -44,8 +44,10 @@ $main-menu-medium: $medium;
   }
 
   &.block-main-menu-wrap--top {
-    position: relative;
+    position: absolute;
     top: 0;
+    right: 0;
     z-index: 2;
+    width: 100%;
   }
 }

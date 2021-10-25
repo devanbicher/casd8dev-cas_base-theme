@@ -14,6 +14,8 @@
     & .link {
         font-weight: bold;
         text-decoration: none;
+        display: flex;
+        justify-content: space-between;
     }
 
     & a:hover .link {
@@ -37,6 +39,11 @@
             margin-right: .5rem;
             background: clr(text-lighter);
         }
+    }
+    & .link__decor--link-list-content {
+        height: 1.5em;
+        width: 1.5em;
+        vertical-align: top;
     }
 
     &-list {

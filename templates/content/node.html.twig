@@ -71,7 +71,7 @@
  */
 #}
 
-<article {{ bem("node") }} {{ attributes }}>
+<article {{ bem("node", [], node.bundle()) }} {{ attributes }}>
 
   {{ title_prefix }}
   {% if not page %}

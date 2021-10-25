@@ -10,7 +10,6 @@
 {% if accent %}
     {% set icon__mods = icon__mods|merge(['accent']) %}
 {% endif %}
-
 {# END variable settings#}
 
 {% include '@atoms/images/icons/decor/_decor.twig' with {
@@ -28,10 +27,20 @@
 
     <div {{ bem(list__base_class ~ '-list') }}>
         {% for item in links %}
-            <a href="{{item.url}}">
-            <div {{ bem('link') }} >{{item.title}}</div>
+        {% if item.url.external %}
+            {% set link_class = "external" %}
+        {% endif %}
+            <a href="{{item.url}}" class='{{link_class}}'>
+            <div {{ bem('link') }} >{{item.title}}
             {% if item.url.external %}
-                {% set url_text = item.url|render|striptags|replace({'https://': '', "http://":'', 'www.':''}) %}
+                {% include "@atoms/images/icons/decor/_decor.twig" with {
+                        pattern: "external",
+                        decor_modifiers: [list__base_class],
+                    } %}
+            {% endif %}
+            </div>
+            {% if item.url.external %}
+                {% set url_text = item.url|render|striptags|replace({'https://':'', "http://":'', 'www.':''}) %}
                 <div {{bem('external', [], 'link-list') }}>{{ url_text|truncate(35, true, '...') }}</div>
             {% endif %}
             </a>
