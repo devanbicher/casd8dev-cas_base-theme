@@ -72,7 +72,7 @@
 #}
 
 <article {{ bem("node", [], node.bundle()) }} {{ attributes }}>
-
+{#}
   {{ title_prefix }}
   {% if not page %}
     {% include "@atoms/text/headings/_heading.twig" with {
@@ -95,7 +95,7 @@
         {{ metadata }}
       </div>
     </footer>
-  {% endif %}
+  {% endif %} #}
 
   <div{{ content_attributes }}>
 
