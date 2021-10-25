@@ -1,9 +1,0 @@
-{% if icon %}
-    <div {{ bem('email', ['icon', email_modifiers]) }} >
-        {% include "@atoms/images/icons/_icon.twig" with {
-            icon_name: "email",
-            icon_blockname: "field",
-        } %}
-        {{ email }}
-    </div>
-{% endif %}

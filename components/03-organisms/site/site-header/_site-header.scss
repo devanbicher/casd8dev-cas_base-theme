@@ -1,5 +1,8 @@
 .header {
-  padding: 0 $space-double 0;
+  @include medium() {
+    padding: 0 $space-double 0;
+  }
+  
   background-color: clr(highlight-high);
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .16);
   position: relative;

@@ -47,5 +47,10 @@
     @extend .link;
   }
 
+}
 
+.page__node .body-text {
+  @include medium {
+    margin-left: $space-quadruple;
+  }
 }

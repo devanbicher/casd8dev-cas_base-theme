@@ -5,20 +5,20 @@
     "heading_modifiers": ["address"],
 } %}
 
-{% include "@atoms/fields/location/_location.twig" with {
-    "icon": TRUE,
-    "location": address,
-    "location_modifiers": ['address', modifiers],
+{% include "@atoms/fields/icon/icon-field.twig" with {
+    "field_content": address,
+    'icon': 'location',
+    "field_modifiers": ['address', modifiers],
 } %}
 
-{% include "@atoms/fields/email/_email.twig" with {
-    "icon": TRUE,
-    "email": email,
-    "email_modifiers": modifiers,
+{% include "@atoms/fields/icon/icon-field.twig" with {
+    "field_content": email,
+    'icon': 'email',
+    "field_modifiers": ['email', modifiers],
 } %}
 
-{% include "@atoms/fields/phone/_phone.twig" with {
-    "icon": TRUE,
-    "phone": phone,
-    "phone_modifiers": modifiers,
+{% include "@atoms/fields/icon/icon-field.twig" with {
+    "field_content": phone,
+    'icon': 'phone',
+    "field_modifiers": ['phone', modifiers],
 } %}
