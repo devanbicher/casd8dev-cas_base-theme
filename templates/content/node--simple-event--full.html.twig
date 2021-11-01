@@ -101,6 +101,20 @@
 
   {#} {{vardumper(content.field_geo_address)}} #}
 
+  {{vardumper(content.field_ranged_date[0]['start_date']['#text'])}}
+
+  {% set date_time = content.field_ranged_date[0]['start_date']['#text']|split('-') %}
+  {% set start_date = date_time[0] %}
+  {% set start_time = date_time[1] %}
+  {# the above works  
+    logic should be 
+    if entire start date = entire end date display start date
+    if start date only = end date only display date and put time on different line
+    if start date does not equal end date, display entire ranged date field. 
+
+  #}
+
+
 
   {% if content.field_location_text|render  %}
     {% set location_text = content.field_location_text %}
@@ -114,13 +128,19 @@
     geo_location_map
 #}
 
+  {#  event_date: content.field_simple_date,
+      smart_date: content.field_smart_date_test, #}
+
+      {# logic for detecting start/end date fields #}
+
+
   {% include "@molecules/displays/simple-event/simple-event.twig" with {
     event_image: content.field_image_file,
     event_title: node.title(),
     
-    event_date: content.field_simple_date,
-    ranged_date: content.field_ranged_date|render,
-    smart_date: content.field_smart_date_test,
+    
+    ranged_date: start_date,
+    ranged_time: start_time,
 
     geo_location_lat: content.field_geo_address[0][0]['#coordinates']['lat'],
     geo_location_long: content.field_geo_address[0][0]['#coordinates']['lng'],

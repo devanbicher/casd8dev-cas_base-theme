@@ -20,22 +20,61 @@
                 {# this needs to be fixed to try and extract the start date from the ranged date field so that the xml feed can work properly #}
                 {% if ranged_date %}
                     {{ranged_date}}
-                {% elseif event_date %}
-                    {{event_date}}
+                    <hr>
+                    {{ranged_time}}
+
                 {% endif %}
-                <h4> Another date </h4>
-                {{smart_date}}
             
                 {# Location stuff #}
                 <div class="simple-event-location">
-                    {% if geo_location_lat and geo_location_long and not text_location %}
-                            <a class="link" href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">View Location on Google Maps</a>
-                    {% elseif  not (geo_location_lat and geo_location_long) and text_location %}   
-                            Location: {{text_location}}
-                    {% elseif geo_location_lat and geo_location_long and text_location %}
-                            Location: <a class="link"  href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">{{text_location}}</a>
-                    {% endif %}
+                    {% embed "@atoms/fields/icon/icon-field.twig" with {
+                        'icon': 'location',
+                        "field_modifiers": ['location', modifiers],
+                    }%}
+
+                    {% block additional_content %}
+
+                        {% if geo_location_lat and geo_location_long and not text_location %}
+                                 {# <a class="link" href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">View Location on Google Maps</a> #}
+                                set location_url = "https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" %}
+                                {% include "@atoms/links/link/link.twig" with {
+                                    link_url: location_url,
+                                    link_content: 'View Location on Google Maps'
+                                } %}   
+
+                        {% elseif  not (geo_location_lat and geo_location_long) and text_location %}   
+                                Location: {{text_location}}
+                        {% elseif geo_location_lat and geo_location_long and text_location %}
+                                {# Location: <a class="link"  href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">{{text_location}}</a>#}
+                                {% set location_url = "https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" %}
+                                {% include "@atoms/links/link/link.twig" with {
+                                    link_url: location_url,
+                                    link_content: text_location
+                                } %} 
+                        {% endif %}
+                     {% endblock %}
+
+                 {% endembed %}
+
+
                 </div>
+{#
+{% embed "@atoms/fields/icon/icon-field.twig" with {
+    'icon': 'phone',
+    "field_modifiers": ['phone', modifiers],
+}%}
+ {% block additional_content %}
+ {% include "@atoms/links/link/link.twig" with {
+     link_url: 'https://google.com',
+     link_content: 'Google'
+ } %}
+ {% endblock %}
+
+ {% endembed %}
+
+#}
+
+
 
                 {# for now the primary link is for registration links only #}
                 {% if primary_link %}
@@ -53,6 +92,7 @@
                         <a class="link" href="{{calendar_link}}" target="_blank">View on the Lehigh Calendar</a>
                     </div>
                 {% endif %}
+                
             </div>
 
             <div class= "simple-event-body">
