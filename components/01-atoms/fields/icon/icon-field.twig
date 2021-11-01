@@ -3,5 +3,7 @@
         icon_name: icon,
         icon_blockname: 'field',
     } %}
-    {{ field_content }}
+    {% block additional_content %}
+      {{ field_content }}
+    {% endblock %}
 </div>
