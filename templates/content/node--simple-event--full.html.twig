@@ -101,16 +101,55 @@
 
   {#} {{vardumper(content.field_geo_address)}} #}
 
-  {{vardumper(content.field_ranged_date[0]['start_date']['#text'])}}
+  {{vardumper(content.field_ranged_date)}}
+  {# put an if here, for if there is no start date either. #}
+  
+  {% if content.field_ranged_date[0]['start_date'] is empty %}
+    {% set all_dates = content.field_ranged_date[0]['#text'] %}
+  
+  {% else %}
+    {% set all_dates = '' %}
+    {% set start_date_time = content.field_ranged_date[0]['start_date']['#text']|split('-') %}
+    {% set start_date = start_date_time[0]|trim %}
+    {% set start_time = start_date_time[1]|trim %}
 
-  {% set date_time = content.field_ranged_date[0]['start_date']['#text']|split('-') %}
-  {% set start_date = date_time[0] %}
-  {% set start_time = date_time[1] %}
+    {% if content.field_ranged_date[0]['end_date'] is empty %}
+      {# if there is no end date, just show start date and times #}
+      {% set date_values = start_date %}
+      {% set time_values = start_time %}
+    {% else %}
+      {% set end_date_time = content.field_ranged_date[0]['end_date']['#text']|split('-') %}
+      {% set end_date = end_date_time[0]|trim %}
+      {% set end_time = end_date_time[1]|trim %}  
+
+      {% if (start_date == end_date) and (start_time == end_time) %}
+        {% set date_values = start_date %}
+        {% set time_values = start_time %}
+
+      {% elseif (start_date == end_date) and not (start_time == end_time) %}
+        {% set date_values = start_date %}
+        {% set time_values = start_time ~ ' - ' ~ end_time %}
+
+      {% else %}
+        {% set all_dates = content.field_ranged_date[0]['start_date']['#text'] ~ '\nTO\n' ~ content.field_ranged_date[0]['end_date']['#text'] %}
+        {% set date_values = '' %}
+        {% set time_values = '' %}  
+
+      {% endif %} {# end of conditional to display dates/times/both #}
+
+    {% endif %} {# end of if whether or not the end date is available #}
+
+  {% endif %} {# end of if start date is available #}
+
   {# the above works  
     logic should be 
     if entire start date = entire end date display start date
     if start date only = end date only display date and put time on different line
     if start date does not equal end date, display entire ranged date field. 
+
+    ranged_date: date_values,
+    ranged_time: time_values,
+
 
   #}
 
@@ -138,9 +177,9 @@
     event_image: content.field_image_file,
     event_title: node.title(),
     
-    
-    ranged_date: start_date,
-    ranged_time: start_time,
+    both_ranged_dates: all_dates,
+    ranged_date: date_values,
+    ranged_time: time_values,
 
     geo_location_lat: content.field_geo_address[0][0]['#coordinates']['lat'],
     geo_location_long: content.field_geo_address[0][0]['#coordinates']['lng'],

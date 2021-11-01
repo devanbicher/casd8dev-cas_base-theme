@@ -18,13 +18,16 @@
             <div class="simple-event-special-info">
             
                 {# this needs to be fixed to try and extract the start date from the ranged date field so that the xml feed can work properly #}
-                {% if ranged_date %}
+                {% if both_ranged_dates %}
+                    {{both_ranged_dates|nl2br}}
+                {% else %}
                     {{ranged_date}}
-                    <hr>
+                    <br>
                     {{ranged_time}}
-
+                    
                 {% endif %}
-            
+                <hr>
+
                 {# Location stuff #}
                 <div class="simple-event-location">
                     {% embed "@atoms/fields/icon/icon-field.twig" with {
@@ -36,7 +39,7 @@
 
                         {% if geo_location_lat and geo_location_long and not text_location %}
                                  {# <a class="link" href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">View Location on Google Maps</a> #}
-                                set location_url = "https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" %}
+                                {% set location_url = "https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" %}
                                 {% include "@atoms/links/link/link.twig" with {
                                     link_url: location_url,
                                     link_content: 'View Location on Google Maps'
