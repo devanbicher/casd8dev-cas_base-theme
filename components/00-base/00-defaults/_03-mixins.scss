@@ -53,6 +53,16 @@ $outer-container-break: $small;
   }
 }
 
+@mixin article-width() {
+  max-width: 800px;
+
+  & .body-text {
+      @include medium {
+          margin-left: $space-quadruple;
+      }
+  }
+}
+
 // Mixin - Standard Margin
 @mixin margin {
   margin-bottom: 1em;

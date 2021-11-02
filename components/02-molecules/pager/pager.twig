@@ -30,7 +30,6 @@
  */
 #}
 {% set pager__base_class = 'pager' %}
-
 {% if items %}
   <nav {{ bem(pager__base_class) }} role="navigation" aria-labelledby="pagination-heading{{ pager__uid }}">
     <h4 id="pagination-heading{{ pager__uid }}" {{ bem('visually-hidden') }}>{{ 'Pagination' ~ pager__uid }}</h4>
