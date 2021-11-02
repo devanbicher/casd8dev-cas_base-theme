@@ -4,7 +4,7 @@
 
 $sidebar-width: minmax(300px, 25%);
 $gutter: $space-sextuple;
-$main-width: calc(100% - (33% + #{$gutter}));
+$main-width: minmax(calc(100% - (33% + #{$gutter})), 1fr);
 
 /*
  * Layout Using Flexbox (IE11+).
@@ -90,7 +90,6 @@ $main-width: calc(100% - (33% + #{$gutter}));
 
 .main-content {
   grid-area: content;
-  max-width: 800px;
   
   & #block-precontent {
     @include underline(goblet-gray);
