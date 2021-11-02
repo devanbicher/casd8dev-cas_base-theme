@@ -24,59 +24,48 @@
                     {{ranged_date}}
                     <br>
                     {{ranged_time}}
-                    
                 {% endif %}
                 <hr>
 
                 {# Location stuff #}
-                <div class="simple-event-location">
-                    {% embed "@atoms/fields/icon/icon-field.twig" with {
-                        'icon': 'location',
-                        "field_modifiers": ['location', modifiers],
-                    }%}
 
-                    {% block additional_content %}
+                {% if (geo_location_lat and geo_location_long) or text_location %}
+                    <div class="simple-event-location">
+                        {% embed "@atoms/fields/icon/icon-field.twig" with {
+                            'icon': 'location',
+                            "field_modifiers": ['location', modifiers],
+                        }%}
 
-                        {% if geo_location_lat and geo_location_long and not text_location %}
-                                 {# <a class="link" href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">View Location on Google Maps</a> #}
-                                {% set location_url = "https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" %}
-                                {% include "@atoms/links/link/link.twig" with {
-                                    link_url: location_url,
-                                    link_content: 'View Location on Google Maps'
-                                } %}   
+                        {% block additional_content %}
 
-                        {% elseif  not (geo_location_lat and geo_location_long) and text_location %}   
-                                Location: {{text_location}}
-                        {% elseif geo_location_lat and geo_location_long and text_location %}
-                                {# Location: <a class="link"  href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">{{text_location}}</a>#}
-                                {% set location_url = "https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" %}
-                                {% include "@atoms/links/link/link.twig" with {
-                                    link_url: location_url,
-                                    link_content: text_location
-                                } %} 
-                        {% endif %}
-                     {% endblock %}
+                            {% if geo_location_lat and geo_location_long and not text_location %}
+                                    {# <a class="link" href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">View Location on Google Maps</a> #}
+                                    {% set location_url = "https://www.google.com/maps/search/?api=1&query=" ~ geo_location_lat ~ "," ~ geo_location_long %}
+                                    {% include "@atoms/links/link/link.twig" with {
+                                        link_url: location_url,
+                                        link_content: 'View Location on Google Maps'
+                                    } %}   
 
-                 {% endembed %}
+                            {% elseif  not (geo_location_lat and geo_location_long) and text_location %}  
+                                    
+                                    {{text_location}}
+
+                            {% elseif geo_location_lat and geo_location_long and text_location %}
+                                    {# Location: <a class="link"  href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">{{text_location}}</a>#}
+                                    {% set location_url = "https://www.google.com/maps/search/?api=1&query=" ~ geo_location_lat ~ "," ~ geo_location_long %}
+                                    {% include "@atoms/links/link/link.twig" with {
+                                        link_url: location_url,
+                                        link_content: text_location
+                                    } %} 
+                            {% endif %}
+                        {% endblock %}
+
+                    {% endembed %}
 
 
-                </div>
-{#
-{% embed "@atoms/fields/icon/icon-field.twig" with {
-    'icon': 'phone',
-    "field_modifiers": ['phone', modifiers],
-}%}
- {% block additional_content %}
- {% include "@atoms/links/link/link.twig" with {
-     link_url: 'https://google.com',
-     link_content: 'Google'
- } %}
- {% endblock %}
+                    </div>
 
- {% endembed %}
-
-#}
-
+            {% endif %}
 
 
                 {# for now the primary link is for registration links only #}
@@ -104,7 +93,7 @@
 
 
 
-
+            
             {% if is_teaser %}
                 {% set node_link = '<a href="/node/{{node_id}}">View Full Event Details</a>' %}
                 
@@ -116,8 +105,10 @@
                     link_content: node_link|render,
                 } %}
                 #}
+               
 
             {% endif %}
+            
 
         </div>
 

@@ -34,3 +34,6 @@ if not, then proceed with the solution above.  so
 use a hook in the module that has the events to fill in the end date with the same date as the smart date if there is no end date. 
 then using the theme/twig it would split up the time to match chris's design. 
 
+
+
+Talk to chris about getting the icons and displaying the dates, 
