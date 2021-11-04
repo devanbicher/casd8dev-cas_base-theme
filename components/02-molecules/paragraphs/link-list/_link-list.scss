@@ -1,5 +1,6 @@
 .link-list {
     position: relative;
+    margin: 5rem 0;
 }
 
 .link-list-content {
@@ -20,7 +21,7 @@
 
     & a:hover .link {
         text-decoration: underline;
-        color: clr(accent-readable);
+        color: clr(accent-light);
     }
 
     & .link-list__external {

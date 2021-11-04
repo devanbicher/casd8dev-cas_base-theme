@@ -17,7 +17,7 @@
 {% if not link_attributes %}
   {% set link_attributes = {} %}
 {% endif %}
-{% if link_url.external %}
+{% if link_url.external or link_external %}
       {% set link_attributes = link_attributes|merge( {'target': '_blank',} ) %}
   {% endif %}
 

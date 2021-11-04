@@ -1,5 +1,5 @@
 @mixin link {
-  color: clr(accent-readable);
+  color: clr(accent-light);
 
   &:hover {
     color: clr(accent-high);
