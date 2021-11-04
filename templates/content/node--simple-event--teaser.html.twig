@@ -100,9 +100,6 @@
   <div{{ content_attributes }}>
 
   {#} {{vardumper(content.field_geo_address)}} #}
-
-  {# {{vardumper(content.field_ranged_date)}} #}
-  {# put an if here, for if there is no start date either. #}
   
   {% if content.field_ranged_date[0]['start_date'] is empty %}
     {% set all_dates = '' %}
@@ -144,36 +141,11 @@
 
   {% endif %} {# end of if start date is available #}
 
-  {# the above works  
-    logic should be 
-    if entire start date = entire end date display start date
-    if start date only = end date only display date and put time on different line
-    if start date does not equal end date, display entire ranged date field. 
-
-    ranged_date: date_values,
-    ranged_time: time_values,
-
-
-  #}
-
-
-
   {% if content.field_location_text|render  %}
-    {% set location_text = content.field_location_text %}
+    {% set location_text = content.field_location_text[0]['#context']['value']|trim %}
     {% else %}
     {% set location_text = '' %}
   {% endif %}
-
-{#}
- geo_location_lat: content.field_geo_address[0]['#lat'],
-    geo_location_long: content.field_geo_address[0]['#lng'],
-    geo_location_map
-#}
-
-  {#  event_date: content.field_simple_date,
-      smart_date: content.field_smart_date_test, #}
-
-      {# logic for detecting start/end date fields #}
 
 
   {% include "@molecules/displays/simple-event/simple-event.twig" with {
@@ -184,18 +156,16 @@
     ranged_date: date_values,
     ranged_time: time_values,
 
-    geo_location_lat: content.field_geo_address[0][0]['#coordinates']['lat'],
-    geo_location_long: content.field_geo_address[0][0]['#coordinates']['lng'],
-    geo_location_map:content.field_geo_address,
-
+    geo_location_lat: content.field_geo_address[0]['#lat'],
+    geo_location_long: content.field_geo_address[0]['#lng'],
 
     text_location: location_text|render,    
 
     primary_link: node.field_primary_link.0.uri,
     calendar_link: node.field_alternate_link.0.uri,
     
-
     body: content.body,
+
     is_teaser: teaser,
     node_id: node.id(),
 

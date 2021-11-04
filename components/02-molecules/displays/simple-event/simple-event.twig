@@ -19,25 +19,48 @@
             
                 {# this needs to be fixed to try and extract the start date from the ranged date field so that the xml feed can work properly #}
                 {% if both_ranged_dates %}
-                    {{both_ranged_dates|nl2br}}
+                    {% embed "@atoms/fields/icon/icon-field.twig" with {
+                        'icon': 'location',
+                        "field_modifiers": ['location', modifiers],
+                    }%}
+                    {# Use the calendar icon instead of the location icon #}
+                    {% block additional_content %}  
+                        {{both_ranged_dates|nl2br}}
+                    {% endblock %}
+                    {% endembed %}
+                    
                 {% else %}
-                    {{ranged_date}}
-                    <br>
-                    {{ranged_time}}
+                    {% if ranged_date and ranged_time %}
+                        {% embed "@atoms/fields/icon/icon-field.twig" with {
+                            'icon': 'location',
+                            "field_modifiers": ['location', modifiers],
+                        }%}
+                        {# Use the calendar icon instead of the location icon #}
+                        {% block additional_content %}  
+                            {{ranged_date}}
+                        {% endblock %}
+                        {% endembed %}
+                        {# seperate embeds/blocks for the date and then time #}
+                        {% embed "@atoms/fields/icon/icon-field.twig" with {
+                            'icon': 'location',
+                            "field_modifiers": ['location', modifiers],
+                        }%}
+                        {# Use the time/clock icon instead of the location icon #}
+                        {% block additional_content %}  
+                            {{ranged_time}}
+                        {% endblock %}
+                        {% endembed %}
+                      {% endif %}  
                 {% endif %}
-                <hr>
 
                 {# Location stuff #}
-
                 {% if (geo_location_lat and geo_location_long) or text_location %}
                     <div class="simple-event-location">
                         {% embed "@atoms/fields/icon/icon-field.twig" with {
                             'icon': 'location',
                             "field_modifiers": ['location', modifiers],
                         }%}
-
                         {% block additional_content %}
-
                             {% if geo_location_lat and geo_location_long and not text_location %}
                                     {# <a class="link" href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">View Location on Google Maps</a> #}
                                     {% set location_url = "https://www.google.com/maps/search/?api=1&query=" ~ geo_location_lat ~ "," ~ geo_location_long %}
@@ -45,11 +68,8 @@
                                         link_url: location_url,
                                         link_content: 'View Location on Google Maps'
                                     } %}   
-
                             {% elseif  not (geo_location_lat and geo_location_long) and text_location %}  
-                                    
                                     {{text_location}}
-
                             {% elseif geo_location_lat and geo_location_long and text_location %}
                                     {# Location: <a class="link"  href="https://www.google.com/maps/search/?api=1&query={{geo_location_lat}}%2C{{geo_location_long}}" target="_blank">{{text_location}}</a>#}
                                     {% set location_url = "https://www.google.com/maps/search/?api=1&query=" ~ geo_location_lat ~ "," ~ geo_location_long %}
@@ -59,12 +79,8 @@
                                     } %} 
                             {% endif %}
                         {% endblock %}
-
                     {% endembed %}
-
-
                     </div>
-
             {% endif %}
 
 
@@ -90,9 +106,6 @@
             <div class= "simple-event-body">
                 {{body}}
             </div>
-
-
-
             
             {% if is_teaser %}
                 {% set node_link = '<a href="/node/{{node_id}}">View Full Event Details</a>' %}
@@ -105,18 +118,16 @@
                     link_content: node_link|render,
                 } %}
                 #}
-               
 
             {% endif %}
-            
 
         </div>
-
-        <div class="simple-event-map">
+        
             {% if not is_teaser %}
-                {{geo_location_map}}
+                <div class="simple-event-map">
+                    {{geo_location_map}}
+                </div>
             {% endif %}
-        </div>
-
+        
     </div>
 </div>
