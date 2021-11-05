@@ -13,6 +13,23 @@
  *     Example: to insert the image component
  */
 #}
+{% if not link_modifiers %}
+    {% set link_modifiers = [] %}
+{% endif %}
+
+{% if outline %}
+    {% set link_modifiers = link_modifiers|merge(['outline']) %}
+{% endif %}
+
+{% if dark %}
+    {% set link_modifiers = link_modifiers|merge(['dark']) %}
+{% endif %}
+
+{% if arrow %}
+    {% set link_modifiers = link_modifiers|merge(['arrow']) %}
+{% endif %}
+
+
 {% set link_base_class = link_base_class|default('link') %}
 {% if not link_attributes %}
   {% set link_attributes = {} %}
@@ -20,7 +37,6 @@
 {% if link_url.external or link_external %}
       {% set link_attributes = link_attributes|merge( {'target': '_blank',} ) %}
   {% endif %}
-
 
 <a
   {{ bem(link_base_class, link_modifiers, link_blockname, link_extra_classes) }}

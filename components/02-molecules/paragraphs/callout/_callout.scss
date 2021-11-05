@@ -23,7 +23,7 @@
             color: clr(text-inverse);
 
             &:hover {
-                color: clr(accent);
+                color: clr(accent-dark-h);
             }
         }
     }
@@ -68,7 +68,7 @@
         }
 
         .callout--accent.callout--dark & {
-            color: clr(accent);
+            color: clr(accent-dark);
         }
         
     }

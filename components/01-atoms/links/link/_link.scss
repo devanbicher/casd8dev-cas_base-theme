@@ -1,16 +1,133 @@
+$link-colors: (
+  light: (
+    linkc: clr(text),
+    linkc-hover: clr(accent-light),
+    bordercolor: clr(accent-light),
+  ),
+  dark: (
+    linkc: clr(accent-dark),
+    linkc-hover: clr(accent-dark-h),
+    bordercolor: clr(accent-dark),
+  ),
+);
+
+@mixin linkColors(
+  $scheme,
+  $pallate: map-get($link-colors, $scheme),
+  $map: $link-colors
+) {
+  color: map-get($pallate, linkc);
+  border-color: map-get($pallate, bordercolor);
+
+  &:visited {
+    color: map-get($pallate, linkc);
+  }
+
+  &:hover {
+    color: map-get($pallate, linkc-hover);
+  }
+  &:hover:after {
+    color: map-get($pallate, linkc-h);
+  }
+}
+
+@mixin link-colors {
+  @include linkColors(light);
+}
+
+@mixin link-colors-dark {
+  @include linkColors(dark);
+}
+
 @mixin link {
   color: clr(accent-light);
 
   &:hover {
-    color: clr(accent-high);
+    color: clr(accent-light-h);
   }
+}
+
+@mixin base {
+  @include link-colors;
+  @include no-dec();
+  @include allcaps();
+
+  &.link--dark {
+    @include link-colors-dark();
+  }
+  font-size: .625rem;
+  color: clr(text);
+  font-weight: bold;
+
+  &:hover {
+      color: clr(accent-light-h);
+      cursor: pointer;
+  
+      &::after {
+          transform: translateX($space-one-third);
+      }
+  }
+}
+
+@mixin arrow {
+
+  &:hover {
+      cursor: pointer;
+
+      &::after {
+          transform: translateX($space-one-third);
+      }
+  }
+
+  &::after {
+      @include transition();
+
+      content: "\2192";
+      position: relative;
+      display: inline-block;
+      font-size: 1.5em;
+      margin: 0 0.5rem;
+  }
+  
+  &--vertical{
+      &::after {
+          content: '\2193';
+      }
+      &:hover::after {
+          transform: translateY($space-one-fourth);
+      }
+  }
+}
+
+@mixin button-style() {
+  @include base();
+  @include outline(accent-light, 1px);
+  
+  border-radius: 0;
+  background: none;
+  display: inline-block;
+  width: fit-content;
+  padding: $space-one-half $space-one-half $space-one-half $space;
+
 }
 
 .link {
   @include link;
-}
+  @include link-colors();
 
-.link--no-dec {
-  @include link;
-  @include no-dec();
+  &.link--dark {
+    @include link-colors-dark();
+  }
+
+  &--arrow {
+    @include arrow;
+  }
+  &--outline {
+    @include button-style;
+  }
+  &--no-dec {
+    @include no-dec;
+  }
+
+
 }
