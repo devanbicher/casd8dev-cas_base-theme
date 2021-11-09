@@ -20,8 +20,8 @@
                 {# this needs to be fixed to try and extract the start date from the ranged date field so that the xml feed can work properly #}
                 {% if both_ranged_dates %}
                     {% embed "@atoms/fields/icon/icon-field.twig" with {
-                        'icon': 'location',
-                        "field_modifiers": ['location', modifiers],
+                        'icon': 'calendar',
+                        "field_modifiers": ['calendar', modifiers],
                     }%}
                     {# Use the calendar icon instead of the location icon #}
                     {% block additional_content %}  
@@ -32,8 +32,8 @@
                 {% else %}
                     {% if ranged_date and ranged_time %}
                         {% embed "@atoms/fields/icon/icon-field.twig" with {
-                            'icon': 'location',
-                            "field_modifiers": ['location', modifiers],
+                            'icon': 'calendar',
+                            "field_modifiers": ['calendar', modifiers],
                         }%}
                         {# Use the calendar icon instead of the location icon #}
                         {% block additional_content %}  
@@ -42,8 +42,8 @@
                         {% endembed %}
                         {# seperate embeds/blocks for the date and then time #}
                         {% embed "@atoms/fields/icon/icon-field.twig" with {
-                            'icon': 'location',
-                            "field_modifiers": ['location', modifiers],
+                            'icon': 'time',
+                            "field_modifiers": ['time', modifiers],
                         }%}
                         {# Use the time/clock icon instead of the location icon #}
                         {% block additional_content %}  
