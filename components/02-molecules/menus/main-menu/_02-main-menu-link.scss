@@ -23,7 +23,7 @@
     &:active,
     &:hover,
     &:focus {
-      color: clr(accent-readable);
+      color: clr(accent-light);
       text-decoration: underline;
       background-color: clr(background-neutral);
       transition: .15s;

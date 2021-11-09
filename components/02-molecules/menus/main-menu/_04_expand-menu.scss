@@ -1,5 +1,5 @@
 .expand-sub{
-    @include outline(accent);
+    @include outline(accent-light);
 
     position: absolute;
     right: $space-one-half;
@@ -30,7 +30,7 @@
         left:0;
         right:0;
         bottom:0;
-        background-color: clr(accent);
+        background-color: clr(accent-light);
     }
 
     &::before {

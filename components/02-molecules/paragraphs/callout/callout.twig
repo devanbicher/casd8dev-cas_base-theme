@@ -17,13 +17,13 @@
 
 {% if callout_link %}
     {% set link_content %}
-        {% if callout_link_decor %}
-            {% include '@atoms/buttons/simple-link.twig' with {
-                link_content: callout_link,
-            } %}
-        {% else %}
-            <div class="simple-link">{{ callout_link }}</div>
-        {% endif %}
+    {% include "@atoms/links/link/link.twig" with {
+        dark: callout_dark,
+        outline: callout_link_decor,
+        arrow: true,
+        link_content: callout_link.title,
+        link_url: callout_link.url,
+    } %}
     {% endset %}
 {% endif %}
 
