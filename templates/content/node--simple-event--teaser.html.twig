@@ -148,7 +148,7 @@
   {% endif %}
 
 
-  {% include "@molecules/displays/simple-event/simple-event.twig" with {
+  {% include "@molecules/displays/calendar-event/calendar-event.twig" with {
     event_image: content.field_image_file,
     event_title: node.title(),
     
@@ -161,7 +161,7 @@
 
     text_location: location_text|render,    
 
-    primary_link: node.field_primary_link.0.uri,
+    registration_link: node.field_registration_link.0.uri,
     calendar_link: node.field_alternate_link.0.uri,
     
     body: content.body,

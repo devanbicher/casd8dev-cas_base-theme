@@ -1,6 +1,6 @@
 {#
     calendar_link is set for alternate link
-    primary_link is set for primary_link
+    registration_link is set for registration_link
 
 #}
 
@@ -85,11 +85,11 @@
 
 
                 {# for now the primary link is for registration links only #}
-                {% if primary_link %}
+                {% if registration_link %}
                     {# uncomment and remove the next div if you want to apply the  link styling with the arrow ( I prefer that one. )
                     <div class="simple-link"> #}
                     <div>
-                        <a class="link" href="{{primary_link}}" target="_blank">Register for Virtual Event</a>
+                        <a class="link" href="{{registration_link}}" target="_blank">Register for Virtual Event</a>
                     </div>
                     {% endif %}
 
