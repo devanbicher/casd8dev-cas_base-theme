@@ -89,7 +89,18 @@
                     {# uncomment and remove the next div if you want to apply the  link styling with the arrow ( I prefer that one. )
                     <div class="simple-link"> #}
                     <div>
-                        <a class="link" href="{{registration_link}}" target="_blank">Register for Virtual Event</a>
+                        {% embed "@atoms/fields/icon/icon-field.twig" with {
+                            'icon': 'virtual',
+                            "field_modifiers": ['virtual', modifiers],
+                        }%}
+                            {% block additional_content %}
+                                {% include "@atoms/links/link/link.twig" with {
+                                    link_url: registration_link,
+                                    link_content: 'Register for Virtual Event'
+                                } %}
+                                {# <a class="link" href="{{registration_link}}" target="_blank">Register for Virtual Event</a> #}
+                            {% endblock %}
+                    {% endembed %}
                     </div>
                     {% endif %}
 
