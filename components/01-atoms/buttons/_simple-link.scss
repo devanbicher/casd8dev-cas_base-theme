@@ -8,7 +8,7 @@
         font-weight: bold;
 
         &:hover {
-            color: clr(accent);
+            color: clr(accent-light-h);
             cursor: pointer;
         
             &::after {
@@ -22,7 +22,7 @@
             content: "\2192";
             position: relative;
             display: inline-block;
-            color: clr(accent);
+            color: clr(accent-light);
             font-size: 1.5em;
             margin: 0 0.5rem;
         }
@@ -42,7 +42,7 @@
     @include link-style();
 
     a, button {
-        @include outline(accent, 1px);
+        @include outline(accent-light, 1px);
         
         border-radius: 0;
         background: none;
