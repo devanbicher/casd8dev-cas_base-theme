@@ -35,7 +35,8 @@ use a hook in the module that has the events to fill in the end date with the sa
 then using the theme/twig it would split up the time to match chris's design. 
 
 
-
-
-
 Talk to chris about getting the icons and displaying the dates, 
+
+
+
+Try using the link template to give it the external link icon.
