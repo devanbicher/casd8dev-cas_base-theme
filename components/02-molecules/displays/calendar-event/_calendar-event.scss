@@ -31,7 +31,6 @@
     }
 
     .calendar-event-special-info{
-        // a comment
         display:block;
     }
 
@@ -40,6 +39,12 @@
     .calendar-event-location div    {
         display: inline-block;
     }   
+
+    .lehigh-calendar-event-link a.link{
+        //comment
+        @include allcaps;
+        text-decoration: none;
+    }
 
     .calendar-event-body{
         margin-top: 30px;
