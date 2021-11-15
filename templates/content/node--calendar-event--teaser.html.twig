@@ -149,7 +149,7 @@
 
 
   {% include "@molecules/displays/calendar-event/calendar-event.twig" with {
-    event_image: content.field_image_file,
+    event_image: content.field_image_file|render,
     event_title: node.title(),
     
     both_ranged_dates: all_dates,

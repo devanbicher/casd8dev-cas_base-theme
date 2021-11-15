@@ -10,7 +10,16 @@
 <div {{bem(simple_event__base_class,[]) }} >
     <div class="calendar-event-wrapper">
         <div class="calendar-event-image">
-            {{ event_image }}
+            {% if event_image %}
+                {{ event_image }}
+            {% else %}
+                {% embed "@atoms/fields/icon/icon-field.twig" with {
+                        'icon': 'calendar2',
+                        "field_modifiers": ['calendar', 'placeholder-calendar', modifiers],
+                    }%}
+                {% endembed %}
+            {% endif %}
+
         </div>
         <div class="calendar-event-side-text">
             <div class="event-title">{{event_title}}</div>

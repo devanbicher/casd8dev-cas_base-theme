@@ -15,7 +15,23 @@
         flex: 1 0 100px;
         //max-width: 250px4
         //width: 33%
+        
+        .field--placeholder-calendar{
+            justify-content: center;
+            background-color: clr(background-neutral);
+            width:100%;
+        }
 
+        svg{
+            width: 25%;
+            height: auto;
+            fill: none;
+            stroke: clr(accent);
+            stroke-width: .5px;
+            margin: auto;
+            
+
+        }
 
         img {
             width: 100%
