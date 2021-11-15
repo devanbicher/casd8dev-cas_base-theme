@@ -1,8 +1,8 @@
 // comment
 
-.simple-event {
+.calendar-event {
 
-    .simple-event-wrapper{
+    .calendar-event-wrapper{
         border: 2px solid clr(goblet-gray);
         display: flex;
         gap: $space-quadruple;
@@ -11,7 +11,7 @@
         flex-wrap: wrap;
     }
 
-    .simple-event-image{
+    .calendar-event-image{
         flex: 1 0 100px;
         //max-width: 250px4
         //width: 33%
@@ -22,7 +22,7 @@
         }
         
     }
-    .simple-event-side-text{
+    .calendar-event-side-text{
         flex: 1 1 600px;
     }
 
@@ -30,22 +30,22 @@
         @include heading-medium;
     }
 
-    .simple-event-special-info{
+    .calendar-event-special-info{
         // a comment
         display:block;
     }
 
 
-    .simple-event-location,
-    .simple-event-location div    {
+    .calendar-event-location,
+    .calendar-event-location div    {
         display: inline-block;
     }   
 
-    .simple-event-body{
+    .calendar-event-body{
         margin-top: 30px;
     }
 
-    .simple-event-map{
+    .calendar-event-map{
         width: 100%;
 
     }

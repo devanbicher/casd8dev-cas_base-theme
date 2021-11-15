@@ -5,17 +5,17 @@
 #}
 
 
-{% set simple_event__base_class = 'simple-event' %}
+{% set simple_event__base_class = 'calendar-event' %}
 
 <div {{bem(simple_event__base_class,[]) }} >
-    <div class="simple-event-wrapper">
-        <div class="simple-event-image">
+    <div class="calendar-event-wrapper">
+        <div class="calendar-event-image">
             {{ event_image }}
         </div>
-        <div class="simple-event-side-text">
+        <div class="calendar-event-side-text">
             <div class="event-title">{{event_title}}</div>
             
-            <div class="simple-event-special-info">
+            <div class="calendar-event-special-info">
             
                 {# this needs to be fixed to try and extract the start date from the ranged date field so that the xml feed can work properly #}
                 {% if both_ranged_dates %}
@@ -55,7 +55,7 @@
 
                 {# Location stuff #}
                 {% if (geo_location_lat and geo_location_long) or text_location %}
-                    <div class="simple-event-location">
+                    <div class="calendar-event-location">
                         {% embed "@atoms/fields/icon/icon-field.twig" with {
                             'icon': 'location',
                             "field_modifiers": ['location', modifiers],
@@ -114,7 +114,7 @@
                 
             </div>
 
-            <div class= "simple-event-body">
+            <div class= "calendar-event-body">
                 {{body}}
             </div>
             
@@ -135,7 +135,7 @@
         </div>
         
             {% if not is_teaser %}
-                <div class="simple-event-map">
+                <div class="calendar-event-map">
                     {{geo_location_map}}
                 </div>
             {% endif %}
