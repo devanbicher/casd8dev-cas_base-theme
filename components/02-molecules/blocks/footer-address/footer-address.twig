@@ -22,16 +22,3 @@
     'icon': 'phone',
     "field_modifiers": ['phone', modifiers],
 } %}
-
-{% embed "@atoms/fields/icon/icon-field.twig" with {
-    'icon': 'phone',
-    "field_modifiers": ['phone', modifiers],
-}%}
- {% block additional_content %}
- {% include "@atoms/links/link/link.twig" with {
-     link_url: 'https://google.com',
-     link_content: 'Google'
- } %}
- {% endblock %}
-
- {% endembed %}
