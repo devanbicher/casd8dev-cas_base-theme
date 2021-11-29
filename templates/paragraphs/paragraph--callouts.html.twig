@@ -42,7 +42,7 @@
     'paragraph-entity'
   ]
 %}
-{{ vardumper(content.field_link) }}
+
 <div{{ attributes.addClass(classes) }}>
   {% include "@molecules/paragraphs/callout/callout.twig" with {
     callout_accent: content.field_accent['#items'].value,
