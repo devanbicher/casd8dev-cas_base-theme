@@ -47,6 +47,30 @@
 	</div>
 </div>
 
+<div {{ bem('field-tabs') }}>
+	{% if research %}
+		<div {{ bem('research-tab') }}>Research</div>
+	{% endif %}
+	{% if bio %}
+		<div {{ bem('bio-tab') }}>Bio</div>
+	{% endif %}
+	{% if website %}
+		<div {{ bem('website-tab') }}>Website</div>
+	{% endif %}
+</div>
+
+<div {{ bem('field-tab-content') }}>
+	{% if research %}
+		<div {{ bem('research-tab-content') }}>{{ research }}</div>
+	{% endif %}
+	{% if bio %}
+		<div {{ bem('bio-tab-content') }}>{{ bio }}</div>
+	{% endif %}
+	{% if website %}
+		<div {{ bem('website-tab-content') }}>{{ website }}</div>
+	{% endif %}
+</div>
+
 <div>
   {{ subpages }}
 </div>
