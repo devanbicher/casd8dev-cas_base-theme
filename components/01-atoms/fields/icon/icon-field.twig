@@ -1,4 +1,4 @@
-<div {{ bem('field', ['icon']|merge(field_modifiers)) }} >
+<div {{ bem('field', ['icon']|merge(field_modifiers), field_blockname) }} >
     {% include "@atoms/images/icons/_icon.twig" with {
         icon_name: icon,
         icon_blockname: 'field',
