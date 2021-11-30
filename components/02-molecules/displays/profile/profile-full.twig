@@ -4,44 +4,54 @@
 	{{ backsplash }}
 </div>
 <div {{ bem('flex-wrapper', [], profile_base_class) }}>
-	<div {{ bem('image', [], profile_base_class) }}>
+
+	<div {{ bem('image', ['square'], profile_base_class) }}>
 		{{ profile_img }}
+		{% include '@atoms/images/icons/decor/_decor.twig' with {
+			pattern: 'dots',
+			decor_modifiers: ['bottom', 'left', 'accent', 'square'],
+   		 } %}
 	</div>
+
+
 	<div {{ bem('info-wrapper') }}>
 		{{ flair }}
 		{% include "@atoms/text/headings/_heading.twig" with {
-      "heading_level": 2,
+      "heading_level": 1,
+	  "heading_modifiers": ['page-title'],
       "heading": name,
     } %}
 
 		{{ positions }}
+		
+		<div {{ bem('contact', [], 'profile') }}>
+			{% embed "@atoms/fields/icon/icon-field.twig" with {
+				icon: 'phone',
+				field_modifiers: ['phone', 'profile'],
+      			}%}
+				{% block additional_content %}
+					{{ phone }}
+				{% endblock %}
+			{% endembed %}
 
-		{% embed "@atoms/fields/icon/icon-field.twig" with {
-      icon: 'phone',
-      field_modifiers: ['phone', 'profile'],
-      }%}
-			{% block additional_content %}
-				{{ phone }}
-			{% endblock %}
-		{% endembed %}
+			{% embed "@atoms/fields/icon/icon-field.twig" with {
+				icon: 'email',
+				field_modifiers: ['email', 'profile'],
+				}%}
+				{% block additional_content %}
+					{{ email }}
+				{% endblock %}
+			{% endembed %}
 
-		{% embed "@atoms/fields/icon/icon-field.twig" with {
-      icon: 'email',
-      field_modifiers: ['email', 'profile'],
-      }%}
-			{% block additional_content %}
-				{{ email }}
-			{% endblock %}
-		{% endembed %}
-
-		{% embed "@atoms/fields/icon/icon-field.twig" with {
-      icon: 'location',
-      field_modifiers: ['location', 'profile'],
-      }%}
-			{% block additional_content %}
-				{{ office }}
-			{% endblock %}
-		{% endembed %}
+			{% embed "@atoms/fields/icon/icon-field.twig" with {
+				icon: 'location',
+				field_modifiers: ['location', 'profile'],
+     			}%}
+				{% block additional_content %}
+					{{ office }}
+				{% endblock %}
+			{% endembed %}
+		</div>
 
 		{{ education }}
 	</div>
@@ -49,28 +59,28 @@
 
 <div {{ bem('field-tabs') }}>
 	{% if research %}
-		<div {{ bem('research-tab') }}>Research</div>
+		<button id='research-tab'>Research</button>
 	{% endif %}
 	{% if bio %}
-		<div {{ bem('bio-tab') }}>Bio</div>
+		<button id='bio-tab'>Biography</button>
 	{% endif %}
 	{% if website %}
-		<div {{ bem('website-tab') }}>Website</div>
+		<button id='website-tab'>Website</button>
 	{% endif %}
 </div>
 
 <div {{ bem('field-tab-content') }}>
 	{% if research %}
-		<div {{ bem('research-tab-content') }}>{{ research }}</div>
+		<div {{ bem('tab-content', ['research']) }}>{{ research }}</div>
 	{% endif %}
 	{% if bio %}
-		<div {{ bem('bio-tab-content') }}>{{ bio }}</div>
+		<div {{ bem('tab-content', ['bio']) }}>{{ bio }}</div>
 	{% endif %}
 	{% if website %}
-		<div {{ bem('website-tab-content') }}>{{ website }}</div>
+		<div {{ bem('tab-content', ['website']) }}>{{ website }}</div>
 	{% endif %}
 </div>
 
 <div>
-  {{ subpages }}
+	{{ subpages }}
 </div>

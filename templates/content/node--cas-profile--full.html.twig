@@ -70,7 +70,7 @@
  *   in different view modes.
  */
 #}
-<article {{ bem("node") }} {{ attributes }}>
+<article {{ bem("node", [], node.bundle()) }} {{ attributes }}>
 
     {% include "@molecules/displays/profile/profile-full.twig" with {
       name: node.label,

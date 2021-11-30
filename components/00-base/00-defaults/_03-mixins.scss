@@ -17,7 +17,7 @@
 @mixin clearfix {
   &::after {
     clear: both;
-    content: '';
+    content: "";
     display: table;
   }
 }
@@ -44,12 +44,8 @@ $outer-container-break: $small;
   }
 
   @include breakpoint($container-max-width) {
-    padding-left: calc(
-      #{$h-padding-large} + calc(-50vw + calc(#{$container-max-width} / 2))
-    );
-    padding-right: calc(
-      #{$h-padding-large} + calc(-50vw + calc(#{$container-max-width} / 2))
-    );
+    padding-left: calc(#{$h-padding-large} + calc(-50vw + calc(#{$container-max-width} / 2)));
+    padding-right: calc(#{$h-padding-large} + calc(-50vw + calc(#{$container-max-width} / 2)));
   }
 }
 
@@ -57,9 +53,9 @@ $outer-container-break: $small;
   max-width: 800px;
 
   & .body-text {
-      @include medium {
-          margin-left: $space-quadruple;
-      }
+    @include medium {
+      margin-left: $space-quadruple;
+    }
   }
 }
 
@@ -85,14 +81,14 @@ $outer-container-break: $small;
 
 //Mixin - Misc
 
-@mixin outline($color:highlight, $width:1px) {
+@mixin outline($color: highlight, $width: 1px) {
   border: $width solid clr($color);
 }
-@mixin overline($color:highlight, $width:1px) {
+@mixin overline($color: highlight, $width: 1px) {
   padding-top: $space;
   border-top: $width solid clr($color);
 }
-@mixin underline($color:highlight, $width:1px) {
+@mixin underline($color: highlight, $width: 1px) {
   padding-bottom: $space;
   border-bottom: $width solid clr($color);
 }
@@ -113,7 +109,6 @@ $outer-container-break: $small;
   transform: translateY(-50%);
 }
 
-
 //Mixin - Fonts
 
 @mixin sans {
@@ -129,10 +124,47 @@ $outer-container-break: $small;
 
 @mixin allcaps {
   text-transform: uppercase;
-  letter-spacing: .15em;
+  letter-spacing: 0.15em;
   font-weight: 500;
 }
 
 @mixin shadow {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+@mixin subheading {
+  @include serif();
+  @include space-reset();
+  @include margin();
+
+  font-size: 2rem;
+  color: clr(lehigh);
+
+  &::after {
+    content: "";
+    display: block;
+    width: 40%;
+    max-width: $space-quadruple;
+    height: 2px;
+    background-color: clr(accent);
+    margin: $space-one-half 0;
+  }
+}
+
+@mixin flair {
+  @include sans();
+  @include allcaps();
+
+  font-size: .75rem;
+  font-weight: bold;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 40%;
+    max-width: $space-quadruple;
+    height: 2px;
+    background-color: clr(accent);
+    margin: $space-one-fourth;
+  }
 }

@@ -20,12 +20,14 @@ body {
   display: flex; /* allows Main region to force footer to bottom when needed */
   flex-direction: column;
   position: relative;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 .main {
   @include wrapper;
 
-  overflow-x: clip;
+  overflow-x: visible;
   display: block; /* Fix for IE weirdness */
   flex: 1 0 0; /* Grow to force footer to bottom of screen */
 }

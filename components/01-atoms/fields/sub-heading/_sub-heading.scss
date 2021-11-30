@@ -1,21 +1,8 @@
 .page-subheading {
-    @include serif();
-    @include space-reset();
-    @include margin();
+    @include subheading;
+
     @include medium {
         margin-left: $space-quadruple;
       }
-
-    font-size: 2rem;
-    color: clr(lehigh);
-
-    &::after {
-        content: '';
-        display: block;
-        width: 40%;
-        max-width: $space-quadruple;
-        height: 2px;
-        background-color: clr(accent);
-        margin: $space-one-half 0;
-    }
 }
+

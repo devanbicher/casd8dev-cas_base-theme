@@ -1,9 +1,76 @@
-.profile__image--backsplash {
-    position: absolutely;
-    width: 100%;
+.profile__image {
+    &--backsplash {
+        position: absolute;
+        width: calc(120% + 20vw);
+        z-index: -1;
+        top: -12rem;
+        left: -4rem;
+
+        & div,
+        & img {
+            width: 100%;
+        }
+    }
+
+    &--square {
+        position: relative;
+        z-index: 1;
+        width: 240px;
+        height: 240px;
+        margin-left: $space-double;
+        margin-bottom: $space-double;
+    }
+}
+
+.profile__contact {
+    margin: $space 0;
+}
+
+.cas_profile__node {
+    position: relative;
+    background-color: white;
+    max-width: 800px;
+    margin-top: 10rem;
+    padding: $space-double;
+}
+.profile__flex-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-double;
+    margin-bottom: $space-quadruple;
+    background: white;
+
+    & .info-wrapper {
+        flex: 1 0 240px;
+    }
 }
 
 .field--icon.field--profile {
     color: clr(accent-light);
-    margin-bottom: .2rem;
+    margin-bottom: 0.2rem;
+    font-size: 80%;
+}
+
+.field-tabs {
+    display: flex;
+    gap: $space;
+
+    & button {
+        @include outline(lehigh);
+
+        box-shadow: 0 0 1px 0px clr(lehigh);
+        padding: 0.5rem;
+        background-color: white;
+        color: clr(lehigh);
+        cursor: pointer;
+
+        &:hover {
+            color: white;
+            background-color: clr(lehigh);
+        }
+    }
+}
+
+.tab-content {
+    display: none;
 }
