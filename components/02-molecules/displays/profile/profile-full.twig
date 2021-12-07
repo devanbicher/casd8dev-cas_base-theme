@@ -57,30 +57,41 @@
 	</div>
 </div>
 
-<div {{ bem('field-tabs') }}>
-	{% if research %}
-		<button id='research-tab'>Research</button>
-	{% endif %}
-	{% if bio %}
-		<button id='bio-tab'>Biography</button>
-	{% endif %}
-	{% if website %}
-		<button id='website-tab'>Website</button>
-	{% endif %}
-</div>
+{% set field_tabs %}
+	<div id='field-tabs'>
+		{% if research %}
+			<button {{ bem('profile-button') }} id='research'>Research</button>
+		{% endif %}
+		{% if bio %}
+			<button {{ bem('profile-button') }} id='biography'>Biography</button>
+		{% endif %}
+		{% if teaching %}
+			<button {{ bem('profile-button') }} id='teaching'>Teaching</button>
+		{% endif %}
+		{% if website %}
+			<button {{ bem('profile-button') }} id='website'>Website</button>
+		{% endif %}
+	</div>
+{% endset %}
+
+{% set accordion_content = [{'label': 'Explore this Profile', 'content': field_tabs}, {'label': 'Explore Personal Pages - ' ~ name, 'content': subpages}] %}
+
+{% include "@molecules/accordion/_accordion.twig" with {
+	sections: accordion_content,
+}
+%}
 
 <div {{ bem('field-tab-content') }}>
 	{% if research %}
 		<div {{ bem('tab-content', ['research']) }}>{{ research }}</div>
 	{% endif %}
 	{% if bio %}
-		<div {{ bem('tab-content', ['bio']) }}>{{ bio }}</div>
+		<div {{ bem('tab-content', ['biography']) }}>{{ bio }}</div>
+	{% endif %}
+	{% if teaching %}
+		<div {{ bem('tab-content', ['teaching']) }}>{{ teaching }}</div>
 	{% endif %}
 	{% if website %}
 		<div {{ bem('tab-content', ['website']) }}>{{ website }}</div>
 	{% endif %}
-</div>
-
-<div>
-	{{ subpages }}
 </div>

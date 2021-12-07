@@ -38,8 +38,10 @@
 
  @TODO: THIS CAN BE REMOVED IF BEM CLASSES CAN BE APPLIED IN WYSIWYG
 #}
-<div {{ bem('field-tabs') }}>
-{% for item in items %}
-	<div {{ bem('profile-button') }}>{{ item.content }}</div>
-{% endfor %}
+
+
+<div {{ bem('positions-wrapper') }}>
+		{% for item in items %}
+			<div{{item.attributes}} {{ bem('position') }}>{{ item.content }}</div>
+		{% endfor %}
 </div>

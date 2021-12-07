@@ -3,7 +3,7 @@
         position: absolute;
         width: calc(120% + 20vw);
         z-index: -1;
-        top: -12rem;
+        top: calc(-2rem - 8vw);
         left: -4rem;
 
         & div,
@@ -22,16 +22,25 @@
     }
 }
 
+.position {
+    color: clr(lehigh);
+    font-weight: 500;
+}
+
 .profile__contact {
-    margin: $space 0;
+    @include margin;
 }
 
 .cas_profile__node {
     position: relative;
     background-color: white;
     max-width: 800px;
-    margin-top: 10rem;
+    margin-top: calc(4rem + 8vw);
     padding: $space-double;
+
+    & .h1--page-title {
+        color: clr(lehigh);
+    }
 }
 .profile__flex-wrapper {
     display: flex;
@@ -45,32 +54,87 @@
     }
 }
 
+.ed-wrapper {
+    display: flex;
+    gap: $space-one-half;
+    font-size: 0.75rem;
+
+    & .label {
+        font-weight: bold;
+    }
+}
+
 .field--icon.field--profile {
     color: clr(accent-light);
     margin-bottom: 0.2rem;
-    font-size: 80%;
+    font-size: 0.75rem;
 }
 
 .field-tabs {
+    @include margin;
+
     display: flex;
     gap: $space;
 
-    & button {
+    & .profile-button {
+        // @include outline(lehigh);
+
+        // box-shadow: inset 0 0 1px 0px clr(lehigh);
+        // background-color: white;
+        // color: clr(lehigh);
+        // cursor: pointer;
+
+        & a {
+            @include no-dec;
+            @include outline(lehigh);
+
+            box-shadow: inset 0 0 1px 0px clr(lehigh);
+            background-color: white;
+            color: clr(lehigh);
+            cursor: pointer;
+            display: block;
+            padding: 0.5rem;
+            color: clr(lehigh);
+        }
+        &:hover a {
+            background-color: clr(lehigh);
+            color: white;
+        }
+    }
+}
+#field-tabs,
+.field-tabs {
+    @include margin;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space;
+
+    & .profile-button a,
+    button.profile-button {
+        all: unset;
+
+        @include no-dec;
         @include outline(lehigh);
 
-        box-shadow: 0 0 1px 0px clr(lehigh);
-        padding: 0.5rem;
+        box-shadow: inset 0 0 1px 0px clr(lehigh);
         background-color: white;
         color: clr(lehigh);
         cursor: pointer;
-
-        &:hover {
-            color: white;
-            background-color: clr(lehigh);
-        }
+        display: block;
+        padding: 0.5rem;
+        color: clr(lehigh);
+    }
+    & a:hover,button.profile-button:hover {
+        background-color: clr(lehigh);
+        color: white;
     }
 }
 
 .tab-content {
     display: none;
+    
+    &.visible {
+        display: block;
+    }
 }

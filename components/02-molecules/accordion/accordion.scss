@@ -1,0 +1,36 @@
+.toggle-bar {
+    @include allcaps;
+    @include underline(text-lighter);
+    @include margin;
+
+    font-size: 0.75rem;
+    color: clr(text-lighter);
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+
+    & .toggle-sign {
+        @include transition;
+
+        font-size: 3rem;
+        line-height: 1rem;
+        font-weight: 100;
+        user-select: none;
+        
+        &.closed {
+            transform: rotateZ(45deg);
+        }
+    }
+
+}
+.accordion-content {
+    @include transition;
+
+    overflow: hidden;
+    opacity: 1;
+
+    &.v-hidden {
+        height: 0 !important;
+        opacity: 0;
+    }
+}

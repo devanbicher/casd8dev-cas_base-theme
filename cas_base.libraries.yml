@@ -37,3 +37,10 @@ tabs:
   dependencies:
     - core/drupal
     - core/jquery
+
+accordion:
+  js:
+    dist/js/02-molecules/accordion/_accordion.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

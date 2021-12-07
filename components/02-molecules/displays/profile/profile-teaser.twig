@@ -4,49 +4,81 @@
 	{{ backsplash }}
 </div>
 <div {{ bem('flex-wrapper', [], profile_base_class) }}>
-	<div {{ bem('image', [], profile_base_class) }}>
+
+	<div {{ bem('image', ['square'], profile_base_class) }}>
 		{{ profile_img }}
+		{% include '@atoms/images/icons/decor/_decor.twig' with {
+			pattern: 'dots',
+			decor_modifiers: ['bottom', 'left', 'accent', 'square'],
+   		 } %}
 	</div>
+
+
 	<div {{ bem('info-wrapper') }}>
 		{{ flair }}
 		{% include "@atoms/text/headings/_heading.twig" with {
       "heading_level": 1,
+	  "heading_modifiers": ['page-title'],
       "heading": name,
     } %}
 
 		{{ positions }}
+		
+		<div {{ bem('contact', [], 'profile') }}>
+			{% embed "@atoms/fields/icon/icon-field.twig" with {
+				icon: 'phone',
+				field_modifiers: ['phone', 'profile'],
+      			}%}
+				{% block additional_content %}
+					{{ phone }}
+				{% endblock %}
+			{% endembed %}
 
-		{% embed "@atoms/fields/icon/icon-field.twig" with {
-      icon: 'phone',
-      field_modifiers: ['phone', 'profile'],
-      }%}
-			{% block additional_content %}
-				{{ phone }}
-			{% endblock %}
-		{% endembed %}
+			{% embed "@atoms/fields/icon/icon-field.twig" with {
+				icon: 'email',
+				field_modifiers: ['email', 'profile'],
+				}%}
+				{% block additional_content %}
+					{{ email }}
+				{% endblock %}
+			{% endembed %}
 
-		{% embed "@atoms/fields/icon/icon-field.twig" with {
-      icon: 'email',
-      field_modifiers: ['email', 'profile'],
-      }%}
-			{% block additional_content %}
-				{{ email }}
-			{% endblock %}
-		{% endembed %}
-
-		{% embed "@atoms/fields/icon/icon-field.twig" with {
-      icon: 'location',
-      field_modifiers: ['location', 'profile'],
-      }%}
-			{% block additional_content %}
-				{{ office }}
-			{% endblock %}
-		{% endembed %}
+			{% embed "@atoms/fields/icon/icon-field.twig" with {
+				icon: 'location',
+				field_modifiers: ['location', 'profile'],
+     			}%}
+				{% block additional_content %}
+					{{ office }}
+				{% endblock %}
+			{% endembed %}
+		</div>
 
 		{{ education }}
 	</div>
 </div>
 
-<div>
-  {{ subpages }}
-</div>
+
+{% set field_tabs %}
+	<div id='field-tabs'>
+		{% set url = '/faculty-staff/'~ name|render|lower|replace({' ':'-'}) %}
+	{% if research %}
+		<div {{ bem('profile-button') }} id='research-tab'><a href='{{url}}/research'>Research</a></div>
+	{% endif %}
+	{% if bio %}
+		<div {{ bem('profile-button') }} id='biography-tab'><a href='{{url}}/biography'>Biography</a></div>
+	{% endif %}
+	{% if teaching %}
+		<div {{ bem('profile-button') }} id='teaching-tab'><a href='{{url}}/teaching'>Teaching</a></div>
+	{% endif %}
+	{% if website %}
+		<div {{ bem('profile-button') }} id='website-tab'><a href='{{url}}/website'>Website</a></div>
+	{% endif %}
+	</div>
+{% endset %}
+
+{% set accordion_content = [{'label': 'Explore this Profile', 'content': field_tabs}, {'label': 'Explore Personal Pages - ' ~ name, 'content': subpages}] %}
+
+{% include "@molecules/accordion/_accordion.twig" with {
+	sections: accordion_content,
+}
+%}
