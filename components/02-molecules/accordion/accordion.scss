@@ -1,3 +1,7 @@
+.accordion {
+    margin-bottom: $space-quadruple;
+}
+
 .toggle-bar {
     @include allcaps;
     @include underline(text-lighter);
