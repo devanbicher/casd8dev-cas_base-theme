@@ -1,0 +1,7 @@
+
+{% include "@molecules/paragraphs/profile/profile-research.twig" with {
+    interests: content.field_research_areas,
+    add_interests: content.field_additional_interests,
+    image: content.field_image,
+    statement: content.field_research_statement,
+}%}

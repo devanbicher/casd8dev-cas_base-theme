@@ -1,0 +1,57 @@
+.research-box {
+    @include outline(goblet-gray);
+    @include margin(4);
+
+    padding: $space-double $space-quadruple;
+
+    .research-label {
+        @include serif;
+
+        font-size: 2rem;
+    }
+
+    ul.research-items {
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: $space-double;
+
+        & li {
+            @include overline(goblet-gray);
+
+            list-style: none;
+            font-weight: 500;
+
+            & a {
+                color: clr(accent-light);
+            }
+        }
+    }
+}
+
+.research__statement {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    & .research-image {
+        flex: 0 1 150px;
+
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    & .research-text {
+        flex: 1 1 240px;
+
+        .research-label {
+            @include flair-dec();
+            
+            margin-top: 0;
+        }
+    }
+}

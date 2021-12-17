@@ -1,0 +1,13 @@
+<div {{ bem('areas', [], 'research', 'research-box') }}>
+	{% if interests %}
+		{{ interests }}
+	{% endif %}
+	{% if add_interests %}
+		{{ add_interests }}
+	{% endif %}
+</div>
+
+<div {{ bem('statement', [], 'research', 'research-box') }}>
+	{{ image }}
+	{{ statement }}
+</div>

@@ -56,7 +56,6 @@
 		{{ education }}
 	</div>
 </div>
-
 {% set field_tabs %}
 	<div id='field-tabs'>
 		{% if research %}
@@ -65,7 +64,7 @@
 		{% if bio %}
 			<button {{ bem('profile-button') }} id='biography'>Biography</button>
 		{% endif %}
-		{% if teaching %}
+		{% if teaching[0] %}
 			<button {{ bem('profile-button') }} id='teaching'>Teaching</button>
 		{% endif %}
 		{% if website %}

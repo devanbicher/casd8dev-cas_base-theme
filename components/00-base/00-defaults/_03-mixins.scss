@@ -60,8 +60,8 @@ $outer-container-break: $small;
 }
 
 // Mixin - Standard Margin
-@mixin margin {
-  margin-bottom: 1em;
+@mixin margin($mult: 1) {
+  margin-bottom: calc( 1em * #{$mult});
 }
 
 @mixin no-bottom {
@@ -151,20 +151,31 @@ $outer-container-break: $small;
   }
 }
 
-@mixin flair {
-  @include sans();
-  @include allcaps();
-
-  font-size: .75rem;
-  font-weight: bold;
+@mixin flair-dec {
+  margin-bottom: $space;
 
   &::after {
     content: "";
-    display: inline-block;
+    display: block;
     width: 40%;
     max-width: $space-quadruple;
     height: 2px;
     background-color: clr(accent);
+    margin: $space $space-one-fourth;
+  }
+}
+
+@mixin flair {
+  @include flair-dec();
+  @include sans();
+  @include allcaps();
+
+  margin-bottom: 0;
+  font-size: 0.75rem;
+  font-weight: bold;
+
+  &::after {
+    display: inline-block;
     margin: $space-one-fourth;
   }
 }

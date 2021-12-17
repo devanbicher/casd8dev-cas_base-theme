@@ -4,7 +4,7 @@
 
 .toggle-bar {
     @include allcaps;
-    @include underline(text-lighter);
+    @include underline(goblet-gray);
     @include margin;
 
     font-size: 0.75rem;
@@ -16,14 +16,15 @@
     & .toggle-sign {
         @include transition;
 
+        transform: rotateZ(45deg);
         font-size: 3rem;
         line-height: 1rem;
         font-weight: 100;
         user-select: none;
-        
-        &.closed {
-            transform: rotateZ(45deg);
-        }
+    }
+
+    &.open .toggle-sign {
+        transform: rotateZ(0deg);
     }
 
 }
