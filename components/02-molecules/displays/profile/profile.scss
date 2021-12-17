@@ -125,20 +125,34 @@
         padding: 0.5rem;
         color: clr(lehigh);
     }
-    & a:hover,button.profile-button:hover {
+    & a:hover,
+    button.profile-button:hover {
         background-color: clr(lehigh);
         color: white;
+    }
+    & a.active,
+    button.profile-button.active {
+        background-color: clr(lehigh);
+        color: white;
+        cursor: default;
     }
 }
 
 .tab-content {
     display: none;
-    
+
     &.visible {
         display: block;
     }
 }
 
+.profile__bio-label {
+    @include serif;
+    @include flair-dec;
+
+    color: clr(lehigh);
+    font-size: 2rem;
+}
 
 .profile_sub_page__node .body-text {
     margin-left: $space-quadruple;

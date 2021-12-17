@@ -44,3 +44,10 @@ accordion:
   dependencies:
     - core/drupal
     - core/jquery
+
+profile:
+  js:
+    dist/js/02-molecules/displays/profile/_profile.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

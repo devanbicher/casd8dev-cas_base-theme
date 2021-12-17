@@ -9,7 +9,7 @@
           $(this).addClass('v-hidden');
 
           // $('.accordion-content').first().removeClass('v-hidden');
-          // $('.toggle-sign').first().removeClass('closed');
+          // $('.toggle-bar').first().addClass('open');
         });
 
       //   $(window).resize(function () {
