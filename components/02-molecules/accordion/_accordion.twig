@@ -1,7 +1,12 @@
 {{ attach_library('cas_base/accordion') }}
 <div {{ bem('accordion') }}>
-    {% for section in sections %}
-        <h3 {{ bem('toggle-bar') }}>{{ section.label }}<div {{ bem('toggle-sign') }}>×</div></h3>
-        <div {{ bem('accordion-content', [], '', '') }}>{{ section.content }}</div>
-    {% endfor %}
+	{% for section in sections %}
+		{% if section.content is not empty and section.content is not null %}
+
+			<h3 {{ bem('toggle-bar') }}>
+                {{ section.label }}<div {{ bem('toggle-sign') }}>×</div>
+			</h3>
+			<div {{ bem('accordion-content', [], '', '') }}>{{ section.content }}</div>
+		{% endif %}
+	{% endfor %}
 </div>

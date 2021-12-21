@@ -60,24 +60,35 @@
 
 
 {% set field_tabs %}
-	<div id='field-tabs'>
-		{% set url = '/faculty-staff/'~ name|render|lower|replace({' ':'-'}) %}
-	{% if research %}
-		<div {{ bem('profile-button') }} id='research-tab'><a href='{{url}}/research'>Research</a></div>
+	{% if research[0] or bio[0] or teaching[0] or website[0] %}
+		<div id='field-tabs'>
+			{% set url = '/faculty-staff/'~ name|render|lower|replace({' ':'-'}) %}
+		{% if research[0] %}
+			<div {{ bem('profile-button') }} id='research-tab'><a href='{{url}}/research'>Research</a></div>
+		{% endif %}
+		{% if bio[0] %}
+			<div {{ bem('profile-button') }} id='biography-tab'><a href='{{url}}/biography'>Biography</a></div>
+		{% endif %}
+		{% if teaching[0] %}
+			<div {{ bem('profile-button') }} id='teaching-tab'><a href='{{url}}/teaching'>Teaching</a></div>
+		{% endif %}
+		{% if website[0] %}
+			<div {{ bem('profile-button') }} id='website-tab'><a href='{{url}}/website'>Website</a></div>
+		{% endif %}
+		</div>
 	{% endif %}
-	{% if bio %}
-		<div {{ bem('profile-button') }} id='biography-tab'><a href='{{url}}/biography'>Biography</a></div>
-	{% endif %}
-	{% if teaching %}
-		<div {{ bem('profile-button') }} id='teaching-tab'><a href='{{url}}/teaching'>Teaching</a></div>
-	{% endif %}
-	{% if website %}
-		<div {{ bem('profile-button') }} id='website-tab'><a href='{{url}}/website'>Website</a></div>
-	{% endif %}
-	</div>
 {% endset %}
 
-{% set accordion_content = [{'label': 'Explore this Profile', 'content': field_tabs}, {'label': 'Explore Personal Pages - ' ~ name, 'content': subpages}] %}
+{% set accordion_content = [] %}
+
+{% if field_tabs != "\t" %}
+	{% set accordion_content = accordion_content|merge([{ ('label') : 'Explore this Profile', ('content'): field_tabs }]) %}
+{% endif %}
+
+{% if subpages[0] %}
+	{% set accordion_content = accordion_content|merge([{ ('label') : 'Explore Personal Pages - ' ~ name, ('content') : subpages}]) %}
+{% endif %}
+
 
 {% include "@molecules/accordion/_accordion.twig" with {
 	sections: accordion_content,

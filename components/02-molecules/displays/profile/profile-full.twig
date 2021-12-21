@@ -58,23 +58,35 @@
 	</div>
 </div>
 {% set field_tabs %}
-	<div id='field-tabs'>
-		{% if research %}
-			<button {{ bem('profile-button') }} id='research'>Research</button>
-		{% endif %}
-		{% if bio %}
-			<button {{ bem('profile-button') }} id='biography'>Biography</button>
-		{% endif %}
-		{% if teaching[0] %}
-			<button {{ bem('profile-button') }} id='teaching'>Teaching</button>
-		{% endif %}
-		{% if website %}
-			<button {{ bem('profile-button') }} id='website'>Website</button>
-		{% endif %}
-	</div>
+	{% if research[0] or bio[0] or teaching[0] or website[0] %}
+		<div id='field-tabs'>
+			{% if research[0] %}
+				<button {{ bem('profile-button') }} id='research'>Research</button>
+			{% endif %}
+			{% if bio[0] %}
+				<button {{ bem('profile-button') }} id='biography'>Biography</button>
+			{% endif %}
+			{% if teaching[0] %}
+				<button {{ bem('profile-button') }} id='teaching'>Teaching</button>
+			{% endif %}
+			{% if website[0] %}
+				<button {{ bem('profile-button') }} id='website'>Website</button>
+			{% endif %}
+		</div>
+	{% endif %}
 {% endset %}
 
-{% set accordion_content = [{'label': 'Explore this Profile', 'content': field_tabs}, {'label': 'Explore Personal Pages - ' ~ name, 'content': subpages}] %}
+{# {% set accordion_content = [{'label': 'Explore this Profile', 'content': field_tabs}, {'label': 'Explore Personal Pages - ' ~ name, 'content': subpages}] %} #}
+{% set accordion_content = [] %}
+
+{% if field_tabs != "\t" %}
+	{% set accordion_content = accordion_content|merge([{ ('label') : 'Explore this Profile', ('content'): field_tabs }]) %}
+{% endif %}
+
+{% if subpages[0] %}
+	{% set accordion_content = accordion_content|merge([{ ('label') : 'Explore Personal Pages - ' ~ name, ('content') : subpages}]) %}
+{% endif %}
+
 
 {% include "@molecules/accordion/_accordion.twig" with {
 	sections: accordion_content,
