@@ -58,9 +58,8 @@
 	</div>
 </div>
 
-
 {% set field_tabs %}
-	{% if research[0] or bio[0] or teaching[0] or website[0] %}
+	{% if research[0] or scholarship[0] or bio[0] or teaching[0] or website[0] %}
 		<div id='field-tabs'>
 			{% set url = '/faculty-staff/'~ name|render|lower|replace({' ':'-'}) %}
 		{% if research[0] %}
@@ -68,6 +67,9 @@
 		{% endif %}
 		{% if bio[0] %}
 			<div {{ bem('profile-button') }} id='biography-tab'><a href='{{url}}/biography'>Biography</a></div>
+		{% endif %}
+		{% if scholarship[0] %}
+			<div {{ bem('profile-button') }} id='scholarship-tab'><a href='{{url}}/scholarship'>Scholarship</a></div>
 		{% endif %}
 		{% if teaching[0] %}
 			<div {{ bem('profile-button') }} id='teaching-tab'><a href='{{url}}/teaching'>Teaching</a></div>

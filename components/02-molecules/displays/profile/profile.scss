@@ -41,6 +41,9 @@
     & .h1--page-title {
         color: clr(lehigh);
     }
+    & .field-tab-content {
+        margin-top: $space-quadruple;
+    }
 }
 .profile__flex-wrapper {
     display: flex;
@@ -146,7 +149,7 @@
     }
 }
 
-.profile__bio-label {
+.profile__bio-label, .profile__scholarship-label, .profile__website-label, .profile__teaching-label {
     @include serif;
     @include flair-dec;
 

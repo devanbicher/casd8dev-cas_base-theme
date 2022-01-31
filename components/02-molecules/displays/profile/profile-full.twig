@@ -58,13 +58,16 @@
 	</div>
 </div>
 {% set field_tabs %}
-	{% if research[0] or bio[0] or teaching[0] or website[0] %}
+	{% if research[0] or bio[0] or scholarship[0] or teaching[0] or website[0] %}
 		<div id='field-tabs'>
 			{% if research[0] %}
 				<button {{ bem('profile-button') }} id='research'>Research</button>
 			{% endif %}
 			{% if bio[0] %}
 				<button {{ bem('profile-button') }} id='biography'>Biography</button>
+			{% endif %}
+			{% if scholarship[0] %}
+				<button {{ bem('profile-button') }} id='scholarship'>Scholarship</button>
 			{% endif %}
 			{% if teaching[0] %}
 				<button {{ bem('profile-button') }} id='teaching'>Teaching</button>
@@ -94,16 +97,19 @@
 %}
 
 <div {{ bem('field-tab-content') }}>
-	{% if research %}
+	{% if research[0] %}
 		<div {{ bem('tab-content', ['research']) }}>{{ research }}</div>
 	{% endif %}
-	{% if bio %}
+	{% if bio[0] %}
 		<div {{ bem('tab-content', ['biography']) }}>{{ bio }}</div>
 	{% endif %}
-	{% if teaching %}
+	{% if scholarship[0] %}
+		<div {{ bem('tab-content', ['scholarship']) }}>{{ scholarship }}</div>
+	{% endif %}
+	{% if teaching[0] %}
 		<div {{ bem('tab-content', ['teaching']) }}>{{ teaching }}</div>
 	{% endif %}
-	{% if website %}
+	{% if website[0] %}
 		<div {{ bem('tab-content', ['website']) }}>{{ website }}</div>
 	{% endif %}
 </div>
