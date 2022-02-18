@@ -1,4 +1,6 @@
-<p align="center"><img src="https://raw.githubusercontent.com/cas_base-ds/documentation/master/.gitbook/assets/logo.png" width="400"/></p>
+Not all of the commits here are from me, this was a collaborative effort.  My name in this project is dlb213.
+
+This was based off the emulsify theme in Drupal. 
 
 Layout Theme is an open-source tool for creating design systems with reusable components and clear guidelines for teams. Layout Theme helps organizations scale their design while reducing cost, streamlining workflows, and improving accessibility.
 
